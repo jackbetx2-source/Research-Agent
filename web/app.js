@@ -78,7 +78,7 @@ function createDownloadFormatControl() {
   const label = document.createElement("label");
   label.className = "download-format";
   label.appendChild(select);
-  downloadButton.textContent = "Download";
+  downloadButton.textContent = "下载";
   downloadButton.parentNode.insertBefore(label, downloadButton.nextSibling);
   return select;
 }
@@ -87,14 +87,14 @@ form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const topic = topicInput.value.trim();
   if (!topic && !selectedResearchFiles.length) {
-    setStatus("Please enter a research topic or upload PDF / DOCX files.", true);
+    setStatus("请输入研究主题，或上传 PDF / DOCX 文件。", true);
     return;
   }
 
   setResearchRunning(true);
   setResultActionsEnabled(false);
-  setStatus("Research is running, usually 20-90 seconds...");
-  renderMarkdown(resultOutput, "## Generating\n\nPlease wait. The final report will appear here.");
+  setStatus("研究正在运行，通常需要 20-90 秒...");
+  renderMarkdown(resultOutput, "## 正在生成\n\n请稍候，最终报告会显示在这里。");
   renderReferences([]);
   latestAnalysisRows = [];
   latestAnalysisSummary = null;
@@ -115,7 +115,7 @@ form.addEventListener("submit", async (event) => {
     latestMarkdown = payload.final_report || "";
     latestTopic = topic;
     latestReferences = Array.isArray(payload.references) ? payload.references : [];
-    renderMarkdown(resultOutput, latestMarkdown || "## No result");
+    renderMarkdown(resultOutput, latestMarkdown || "## 暂无结果");
     renderReferences(latestReferences);
     setStatus(`完成，已保存到 ${payload.output_path || "outputs"}`);
     setResultActionsEnabled(Boolean(latestMarkdown));
@@ -126,7 +126,7 @@ form.addEventListener("submit", async (event) => {
     latestReferences = [];
     renderMarkdown(resultOutput, `## 运行失败\n\n${error.message}`);
     renderReferences([]);
-    setStatus("Run failed. Please check the local service, network, or model configuration.", true);
+    setStatus("运行失败。请检查本地服务、网络或模型配置。", true);
     updateAnalysisPrompt();
   } finally {
     setResearchRunning(false);
@@ -137,11 +137,11 @@ researchFileInput.addEventListener("change", () => {
   const allFiles = Array.from(researchFileInput.files || []);
   const legacyWordFiles = allFiles.filter((file) => /\.doc$/i.test(file.name));
   if (legacyWordFiles.length) {
-    setStatus(`Legacy .doc is not supported: ${legacyWordFiles.map((file) => file.name).join(", ")}. Please save as .docx or PDF.`, true);
+    setStatus(`不支持旧版 .doc 文件：${legacyWordFiles.map((file) => file.name).join("、")}。请另存为 .docx 或 PDF 后再上传。`, true);
   }
   const unsupportedFiles = allFiles.filter((file) => !isResearchDocument(file) && !/\.doc$/i.test(file.name));
   if (unsupportedFiles.length) {
-    setStatus(`Unsupported files: ${unsupportedFiles.map((file) => file.name).join(", ")}. Only PDF / DOCX are supported.`, true);
+    setStatus(`不支持这些文件：${unsupportedFiles.map((file) => file.name).join("、")}。目前只支持 PDF / DOCX。`, true);
   }
   const files = allFiles.filter(isResearchDocument);
   addSelectedResearchFiles(files);
@@ -158,9 +158,9 @@ slrForm.addEventListener("submit", async (event) => {
   if (!topic) return;
 
   setSlrRunning(true);
-  slrStatus.textContent = "Starting systematic review...";
+  slrStatus.textContent = "正在启动文献综述...";
   renderLiteratureSummary(slrSummary, null);
-  renderMarkdown(slrOutput, "## Generating systematic review\n\nThe system is preparing sources and synthesis.");
+  renderMarkdown(slrOutput, "## 正在生成文献综述\n\n系统正在准备文献来源并进行综合分析。");
 
   try {
     const hasUserSources = selectedSlrPdfFiles.length || parseLiteratureLinkInput(slrReferenceInput.value).length;
@@ -174,14 +174,14 @@ slrForm.addEventListener("submit", async (event) => {
     if (!response.ok) throw new Error(payload.error || `HTTP ${response.status}`);
     if (payload.job_id) {
       payload = await waitForJob("/api/slr", payload.job_id, (message) => {
-        slrStatus.textContent = message.replace("Running", "综述运行");
+        slrStatus.textContent = message;
       });
     }
 
     latestSlrMarkdown = payload.report_markdown || "";
     renderSlrSummary(payload);
-    renderMarkdown(slrOutput, latestSlrMarkdown || "## No systematic review result");
-    slrStatus.textContent = `Done. Reviewed ${(payload.papers || []).length} paper(s).`;
+    renderMarkdown(slrOutput, latestSlrMarkdown || "## 暂无文献综述结果");
+    slrStatus.textContent = `已完成，共综述 ${(payload.papers || []).length} 篇/项文献。`;
     if (hasUserSources) clearSelectedSlrPdfFiles();
   } catch (error) {
     latestSlrMarkdown = "";
@@ -305,7 +305,7 @@ clearPdfButton.addEventListener("click", () => {
 copyButton.addEventListener("click", async () => {
   if (!latestMarkdown) return;
   await navigator.clipboard.writeText(latestMarkdown);
-  setStatus("Result copied.");
+  setStatus("结果已复制。");
 });
 
 downloadButton.addEventListener("click", () => {
@@ -315,7 +315,7 @@ downloadButton.addEventListener("click", () => {
     return;
   }
   downloadText(`${safeFileName(latestTopic)}.txt`, buildDownloadText());
-  setStatus("TXT report downloaded.");
+  setStatus("TXT 报告已下载。");
 });
 
 chatForm.addEventListener("submit", async (event) => {
@@ -336,10 +336,10 @@ chatForm.addEventListener("submit", async (event) => {
     });
     const payload = await readJsonResponse(response);
     if (!response.ok) throw new Error(payload.error || `HTTP ${response.status}`);
-    const answer = payload.answer || "No valid answer was returned.";
+    const answer = payload.answer || "未返回有效回答。";
     appendChatMessage("assistant", answer);
     chatHistory.push({ role: "assistant", content: answer });
-    chatStatus.textContent = "Answered.";
+    chatStatus.textContent = "已回答。";
   } catch (error) {
     appendChatMessage("assistant", `回答失败：${error.message}`);
     chatStatus.textContent = "回答失败";
@@ -382,7 +382,7 @@ function setResearchRunning(isRunning) {
   topicInput.disabled = isRunning;
   researchFileInput.disabled = isRunning;
   clearResearchFilesButton.disabled = isRunning || !selectedResearchFiles.length;
-  runButton.textContent = isRunning ? "Researching..." : "Start research";
+  runButton.textContent = isRunning ? "研究中..." : "开始研究";
 }
 
 function setSlrRunning(isRunning) {
@@ -416,7 +416,7 @@ function setDoiAnalysisRunning(isRunning) {
 function setChatRunning(isRunning) {
   chatInput.disabled = isRunning;
   chatSendButton.disabled = isRunning;
-  chatSendButton.textContent = isRunning ? "Sending..." : "Send";
+  chatSendButton.textContent = isRunning ? "发送中..." : "发送";
 }
 
 function setStatus(message, isError = false) {
@@ -426,21 +426,21 @@ function setStatus(message, isError = false) {
 
 function renderReferences(references) {
   if (!references.length) {
-    referenceList.innerHTML = '<li class="empty-state">No references yet.</li>';
+    referenceList.innerHTML = '<li class="empty-state">暂无参考文献。</li>';
     return;
   }
   referenceList.innerHTML = references.map((reference) => `
     <li class="reference-item">
-      <strong>${linkOrText(reference.title || "Untitled source", reference.source)}</strong>
-      <span>${escapeHtml(reference.branch_name || "Research branch")}</span>
-      <p>${escapeHtml(reference.relevance || "Not specified")}</p>
+      <strong>${linkOrText(reference.title || "未命名来源", reference.source)}</strong>
+      <span>${escapeHtml(reference.branch_name || "研究分支")}</span>
+      <p>${escapeHtml(reference.relevance || "未说明")}</p>
     </li>
   `).join("");
 }
 
 function renderAnalysisRows(rows) {
   if (!rows.length) {
-    analysisTableBody.innerHTML = '<tr><td colspan="8" class="empty-state">确认后会启动 LLM workflow 生成文献分析表。</td></tr>';
+    analysisTableBody.innerHTML = '<tr><td colspan="8" class="empty-state">确认后会启动 LLM 工作流生成文献分析表。</td></tr>';
     return;
   }
   analysisTableBody.innerHTML = rows.map((row) => `
@@ -690,14 +690,11 @@ function clearSelectedSlrPdfFiles() {
 
 function updateSlrPdfSummary() {
   if (!selectedSlrPdfFiles.length) {
-    slrPdfSummary.textContent = "No PDF selected.";
+    slrPdfSummary.textContent = "尚未选择文件。";
     clearSlrPdfButton.disabled = true;
     return;
   }
-  const totalSize = selectedSlrPdfFiles.reduce((sum, file) => sum + file.size, 0);
-  const names = selectedSlrPdfFiles.map((file) => file.name).slice(0, 3).join(", ");
-  const suffix = selectedSlrPdfFiles.length > 3 ? ` and ${selectedSlrPdfFiles.length - 3} more` : "";
-  slrPdfSummary.textContent = `Added ${selectedSlrPdfFiles.length} PDF(s), about ${formatFileSize(totalSize)}: ${names}${suffix}`;
+  slrPdfSummary.textContent = formatSelectedFilesSummary(selectedSlrPdfFiles);
   clearSlrPdfButton.disabled = false;
 }
 
@@ -809,7 +806,7 @@ function updateAnalysisPrompt() {
     startAnalysisButton.textContent = "重新分析";
     return;
   }
-  analysisPrompt.textContent = `检测到 ${latestReferences.length} 篇/项相关文献。是否启动 LLM 文献分析 workflow？`;
+  analysisPrompt.textContent = `检测到 ${latestReferences.length} 篇/项相关文献。是否启动 LLM 文献分析工作流？`;
   startAnalysisButton.disabled = false;
   startAnalysisButton.textContent = "开始文献分析";
   analysisStatus.textContent = "等待确认";
@@ -891,12 +888,12 @@ function isResearchDocument(file) {
 function filterSupportedUploadFiles(files, report) {
   const legacyWordFiles = files.filter((file) => /\.doc$/i.test(file.name));
   if (legacyWordFiles.length) {
-    report(`Legacy .doc is not supported: ${legacyWordFiles.map((file) => file.name).join(", ")}. Please save as .docx or PDF.`);
+    report(`不支持旧版 .doc 文件：${legacyWordFiles.map((file) => file.name).join("、")}。请另存为 .docx 或 PDF 后再上传。`);
   }
   const supported = files.filter(isResearchDocument);
   const unsupported = files.filter((file) => !isResearchDocument(file) && !/\.doc$/i.test(file.name));
   if (unsupported.length) {
-    report(`Unsupported files: ${unsupported.map((file) => file.name).join(", ")}. Only PDF / DOCX are supported.`);
+    report(`不支持这些文件：${unsupported.map((file) => file.name).join("、")}。目前只支持 PDF / DOCX。`);
   }
   return supported;
 }
@@ -925,14 +922,11 @@ function clearSelectedResearchFiles() {
 
 function updateResearchFileSummary() {
   if (!selectedResearchFiles.length) {
-    researchFileSummary.textContent = "No files selected.";
+    researchFileSummary.textContent = "尚未选择文件。";
     clearResearchFilesButton.disabled = true;
     return;
   }
-  const totalSize = selectedResearchFiles.reduce((sum, file) => sum + file.size, 0);
-  const names = selectedResearchFiles.map((file) => file.name).slice(0, 3).join(", ");
-  const suffix = selectedResearchFiles.length > 3 ? ` and ${selectedResearchFiles.length - 3} more` : "";
-  researchFileSummary.textContent = `Added ${selectedResearchFiles.length} file(s), about ${formatFileSize(totalSize)}: ${names}${suffix}`;
+  researchFileSummary.textContent = formatSelectedFilesSummary(selectedResearchFiles);
   clearResearchFilesButton.disabled = false;
 }
 
@@ -960,45 +954,16 @@ function clearSelectedPdfFiles() {
 
 function updatePdfFileSummary() {
   if (!selectedPdfFiles.length) {
-    pdfFileSummary.textContent = "No PDF selected.";
+    pdfFileSummary.textContent = "尚未选择文件。";
     clearPdfButton.disabled = true;
     return;
   }
-  const totalSize = selectedPdfFiles.reduce((sum, file) => sum + file.size, 0);
-  const names = selectedPdfFiles.map((file) => file.name).slice(0, 3).join(", ");
-  const suffix = selectedPdfFiles.length > 3 ? ` and ${selectedPdfFiles.length - 3} more` : "";
-  pdfFileSummary.textContent = `Added ${selectedPdfFiles.length} PDF(s), about ${formatFileSize(totalSize)}: ${names}${suffix}`;
+  pdfFileSummary.textContent = formatSelectedFilesSummary(selectedPdfFiles);
   clearPdfButton.disabled = false;
 }
 
 function pdfFileKey(file) {
   return `${file.name}:${file.size}:${file.lastModified}`;
-}
-
-function updateSlrPdfSummary() {
-  if (!selectedSlrPdfFiles.length) {
-    slrPdfSummary.textContent = "No files selected.";
-    clearSlrPdfButton.disabled = true;
-    return;
-  }
-  const totalSize = selectedSlrPdfFiles.reduce((sum, file) => sum + file.size, 0);
-  const names = selectedSlrPdfFiles.map((file) => file.name).slice(0, 3).join(", ");
-  const suffix = selectedSlrPdfFiles.length > 3 ? ` and ${selectedSlrPdfFiles.length - 3} more` : "";
-  slrPdfSummary.textContent = `Added ${selectedSlrPdfFiles.length} file(s), about ${formatFileSize(totalSize)}: ${names}${suffix}`;
-  clearSlrPdfButton.disabled = false;
-}
-
-function updatePdfFileSummary() {
-  if (!selectedPdfFiles.length) {
-    pdfFileSummary.textContent = "No files selected.";
-    clearPdfButton.disabled = true;
-    return;
-  }
-  const totalSize = selectedPdfFiles.reduce((sum, file) => sum + file.size, 0);
-  const names = selectedPdfFiles.map((file) => file.name).slice(0, 3).join(", ");
-  const suffix = selectedPdfFiles.length > 3 ? ` and ${selectedPdfFiles.length - 3} more` : "";
-  pdfFileSummary.textContent = `Added ${selectedPdfFiles.length} file(s), about ${formatFileSize(totalSize)}: ${names}${suffix}`;
-  clearPdfButton.disabled = false;
 }
 
 function readableTitleFromUrl(url) {
@@ -1045,11 +1010,24 @@ async function waitForJob(basePath, jobId, updateStatus) {
     const payload = await readJsonResponse(response);
     if (!response.ok) throw new Error(payload.error || `HTTP ${response.status}`);
     if (payload.status === "done") return payload;
-    if (payload.status === "error") throw new Error(payload.error || "Job failed.");
+    if (payload.status === "error") throw new Error(payload.error || "任务运行失败。");
     const elapsed = Math.floor((Date.now() - startedAt) / 1000);
-    updateStatus(payload.stage || `运行中，已运行 ${elapsed} 秒...`);
+    updateStatus(translateJobStage(payload.stage) || `运行中，已运行 ${elapsed} 秒...`);
   }
-  throw new Error("Job timed out after 10 minutes.");
+  throw new Error("任务超过 10 分钟未完成，已停止等待。");
+}
+
+function translateJobStage(stage) {
+  const text = String(stage || "").trim();
+  const stageMap = {
+    "Starting research...": "正在启动研究任务...",
+    "Running research workflow...": "正在运行研究工作流...",
+    "Starting literature analysis...": "正在启动文献分析...",
+    "Resolving DOI metadata...": "正在补全文献元数据...",
+    "Running LLM literature analysis...": "正在运行文献分析...",
+    "Preparing SLR sources...": "正在准备文献综述来源...",
+  };
+  return stageMap[text] || text;
 }
 
 async function readJsonResponse(response) {
@@ -1058,7 +1036,7 @@ async function readJsonResponse(response) {
   try {
     return JSON.parse(responseText);
   } catch {
-    throw new Error(`Invalid JSON response: ${responseText.slice(0, 160)}`);
+    throw new Error(`服务返回了无法解析的数据：${responseText.slice(0, 160)}`);
   }
 }
 
@@ -1101,7 +1079,7 @@ function inlineMarkdown(value) {
 }
 
 function reviewCell(value) {
-  return escapeHtml(value || "Not specified");
+  return escapeHtml(value || "未说明");
 }
 
 function reviewCellWithMeta(value, meta) {
@@ -1110,7 +1088,7 @@ function reviewCellWithMeta(value, meta) {
 }
 
 function linkOrText(title, source) {
-  const cleanTitle = escapeHtml(title || "Untitled");
+  const cleanTitle = escapeHtml(title || "未命名");
   if (/^https?:\/\//i.test(source || "")) {
     return `<a href="${escapeHtml(source)}" target="_blank" rel="noreferrer">${cleanTitle}</a>`;
   }
@@ -1122,7 +1100,7 @@ function buildDownloadText() {
     const title = reference.source && /^https?:\/\//i.test(reference.source)
       ? `[${reference.title}](${reference.source})`
       : reference.title;
-    return `- ${title} (${reference.branch_name || "source"}) - ${reference.relevance || ""}`;
+    return `- ${title} (${reference.branch_name || "来源"}) - ${reference.relevance || ""}`;
   }).join("\n");
   return `${latestMarkdown.trim()}\n\n## 相关文献\n\n${referenceMarkdown}\n`;
 }
@@ -1148,7 +1126,7 @@ function downloadText(filename, text) {
 }
 
 async function downloadPdfReport() {
-  setStatus("Generating PDF...");
+  setStatus("正在生成 PDF...");
   try {
     const response = await fetch(apiPath("/api/export/pdf"), {
       method: "POST",
@@ -1163,9 +1141,9 @@ async function downloadPdfReport() {
     }
     const blob = await response.blob();
     downloadBlob(`${safeFileName(latestTopic)}.pdf`, blob);
-    setStatus("PDF report downloaded.");
+    setStatus("PDF 报告已下载。");
   } catch (error) {
-    setStatus(`PDF export failed: ${error.message}`, true);
+    setStatus(`PDF 导出失败：${error.message}`, true);
   }
 }
 
@@ -1187,6 +1165,13 @@ function sleep(ms) {
 function formatFileSize(bytes) {
   if (bytes < 1024 * 1024) return `${Math.max(1, Math.round(bytes / 1024))} KB`;
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
+
+function formatSelectedFilesSummary(files) {
+  const totalSize = files.reduce((sum, file) => sum + file.size, 0);
+  const names = files.map((file) => file.name).slice(0, 3).join("、");
+  const suffix = files.length > 3 ? `，另有 ${files.length - 3} 个文件` : "";
+  return `已添加 ${files.length} 个文件，约 ${formatFileSize(totalSize)}：${names}${suffix}`;
 }
 
 function apiPath(path) {
