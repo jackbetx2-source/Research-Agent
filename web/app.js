@@ -912,13 +912,25 @@ function updateAnalysisPrompt() {
 function parseLiteratureLinkInput(value) {
   const doiMatches = value.match(/10\.\d{4,9}\/[^\s,;，；]+/gi) || [];
   const urlMatches = value.match(/https?:\/\/[^\s,;，；]+/gi) || [];
+  const pmidMatches = value.match(/\bPMID\s*:?\s*\d{6,9}\b/gi) || [];
+  const barePmidMatches = String(value || "")
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => /^\d{6,9}$/.test(line));
   const seen = new Set();
   const entries = [];
   doiMatches.forEach((doi) => addLiteratureEntry(entries, seen, { type: "doi", value: doi.replace(/[.)\]}]+$/g, "") }));
   urlMatches.forEach((url) => {
     const cleaned = url.replace(/[.)\]}]+$/g, "");
     const doi = extractDoiFromText(cleaned);
-    addLiteratureEntry(entries, seen, doi ? { type: "doi", value: doi } : { type: "url", value: cleaned });
+    const pmid = extractPmidFromText(cleaned);
+    addLiteratureEntry(entries, seen, doi ? { type: "doi", value: doi } : (pmid ? { type: "pmid", value: pmid } : { type: "url", value: cleaned }));
+  });
+  pmidMatches.forEach((pmid) => {
+    addLiteratureEntry(entries, seen, { type: "pmid", value: extractPmidFromText(pmid) });
+  });
+  barePmidMatches.forEach((pmid) => {
+    addLiteratureEntry(entries, seen, { type: "pmid", value: pmid });
   });
   return entries;
 }
@@ -949,12 +961,29 @@ function extractDoiFromText(value) {
   return match ? match[0].replace(/[.)\]}]+$/g, "") : "";
 }
 
+function extractPmidFromText(value) {
+  const pubmedUrlMatch = value.match(/pubmed\.ncbi\.nlm\.nih\.gov\/(\d{6,9})/i);
+  if (pubmedUrlMatch) return pubmedUrlMatch[1];
+  const legacyUrlMatch = value.match(/ncbi\.nlm\.nih\.gov\/pubmed\/(\d{6,9})/i);
+  if (legacyUrlMatch) return legacyUrlMatch[1];
+  const pmidMatch = value.match(/\bPMID\s*:?\s*(\d{6,9})\b/i);
+  return pmidMatch ? pmidMatch[1] : "";
+}
+
 function literatureLinkToReference(entry) {
   if (entry.type === "doi") {
     return {
       title: `DOI: ${entry.value}`,
       source: `https://doi.org/${entry.value}`,
       relevance: "用户在文献分析中主动提交，需要进行文献分析。",
+      branch_name: "文献分析",
+    };
+  }
+  if (entry.type === "pmid") {
+    return {
+      title: `PMID: ${entry.value}`,
+      source: `https://pubmed.ncbi.nlm.nih.gov/${entry.value}/`,
+      relevance: "用户在文献分析中主动提交 PubMed 文献，需要进行文献分析。",
       branch_name: "文献分析",
     };
   }

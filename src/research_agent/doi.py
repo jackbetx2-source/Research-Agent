@@ -10,12 +10,15 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import quote, unquote, urlparse
 from urllib.request import Request, urlopen
 
+from .pubmed_search import fetch_pubmed_records
+
 
 DOI_PATTERN = re.compile(r"10\.\d{4,9}/[^\s,;，；]+", re.IGNORECASE)
 ARXIV_PATTERN = re.compile(
     r"(?:arxiv:|arxiv\.org/(?:abs|pdf)/)?([a-z-]+(?:\.[A-Z]{2})?/\d{7}|\d{4}\.\d{4,5})(?:v\d+)?",
     re.IGNORECASE,
 )
+PMID_PATTERN = re.compile(r"\b(?:PMID\s*:?\s*)?(\d{6,9})\b", re.IGNORECASE)
 ATOM_NS = {"atom": "http://www.w3.org/2005/Atom"}
 
 
@@ -37,6 +40,12 @@ def enrich_references_with_doi_metadata(references: list[dict]) -> list[dict]:
             if metadata:
                 item.update(metadata)
                 item["source"] = f"https://arxiv.org/abs/{metadata['arxiv_id']}"
+                item["relevance"] = metadata_relevance(metadata, item.get("relevance", ""))
+        elif pmid := extract_pmid(item):
+            metadata = fetch_pubmed_metadata(pmid)
+            if metadata:
+                item.update(metadata)
+                item["source"] = f"https://pubmed.ncbi.nlm.nih.gov/{metadata['pmid']}/"
                 item["relevance"] = metadata_relevance(metadata, item.get("relevance", ""))
         elif url := extract_url(item):
             metadata = fetch_webpage_metadata(url)
@@ -78,6 +87,27 @@ def extract_arxiv_id(reference: dict) -> str:
     if not match:
         return ""
     return match.group(1)
+
+
+def extract_pmid(reference: dict) -> str:
+    text = " ".join(
+        str(reference.get(key, "") or "")
+        for key in ("title", "source", "relevance")
+    )
+    text = unquote(text)
+    for token in re.split(r"\s+", text):
+        parsed = urlparse(token.strip().rstrip(".)]}"))
+        host = parsed.netloc.lower()
+        if host.endswith("pubmed.ncbi.nlm.nih.gov"):
+            match = re.search(r"/(\d{6,9})(?:/|$)", parsed.path)
+            if match:
+                return match.group(1)
+        if host.endswith("ncbi.nlm.nih.gov") and "/pubmed/" in parsed.path.lower():
+            match = re.search(r"/pubmed/(\d{6,9})(?:/|$)", parsed.path, flags=re.IGNORECASE)
+            if match:
+                return match.group(1)
+    match = PMID_PATTERN.search(text)
+    return match.group(1) if match else ""
 
 
 def extract_url(reference: dict) -> str:
@@ -188,6 +218,33 @@ def fetch_arxiv_metadata(arxiv_id: str) -> dict:
         "year": published[:4] if published else "",
         "journal": "arXiv",
         "abstract": abstract,
+    }
+
+
+def fetch_pubmed_metadata(pmid: str) -> dict:
+    try:
+        records = fetch_pubmed_records([pmid])
+    except Exception:
+        return {}
+    if not records:
+        return {}
+    record = records[0]
+    authors = record.get("authors", [])
+    if isinstance(authors, list):
+        authors_text = ", ".join(str(author) for author in authors[:6] if author)
+        if len(authors) > 6:
+            authors_text = f"{authors_text}, et al." if authors_text else "et al."
+    else:
+        authors_text = str(authors or "")
+    return {
+        "pmid": str(record.get("pmid") or pmid),
+        "doi": str(record.get("doi") or ""),
+        "title": str(record.get("title") or f"PubMed PMID: {pmid}"),
+        "source": str(record.get("abs_url") or f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/"),
+        "authors": authors_text,
+        "year": str(record.get("published") or ""),
+        "journal": str(record.get("journal") or "PubMed"),
+        "abstract": str(record.get("abstract") or ""),
     }
 
 
