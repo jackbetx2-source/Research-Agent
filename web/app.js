@@ -44,6 +44,12 @@ const slrPdfInput = $("#slrPdfInput");
 const slrPdfSummary = $("#slrPdfSummary");
 const clearSlrPdfButton = $("#clearSlrPdfButton");
 const slrReferenceInput = $("#slrReferenceInput");
+const slrDownloadMdButton = $("#slrDownloadMdButton");
+const slrDownloadPdfButton = $("#slrDownloadPdfButton");
+const literatureDownloadCsvButton = $("#literatureDownloadCsvButton");
+const literatureDownloadTxtButton = $("#literatureDownloadTxtButton");
+const analysisDownloadCsvButton = $("#analysisDownloadCsvButton");
+const analysisDownloadTxtButton = $("#analysisDownloadTxtButton");
 const chatForm = $("#chatForm");
 const chatInput = $("#chatInput");
 const chatMessages = $("#chatMessages");
@@ -56,6 +62,10 @@ let latestReferences = [];
 let latestAnalysisRows = [];
 let latestAnalysisSummary = null;
 let latestSlrMarkdown = "";
+let latestSlrTopic = "literature-review";
+let latestDoiAnalysisRows = [];
+let latestDoiAnalysisSummary = null;
+let latestDoiTopic = "literature-analysis";
 let selectedResearchFiles = [];
 let selectedPdfFiles = [];
 let selectedSlrPdfFiles = [];
@@ -94,10 +104,11 @@ form.addEventListener("submit", async (event) => {
   setResearchRunning(true);
   setResultActionsEnabled(false);
   setStatus("研究正在运行，通常需要 20-90 秒...");
-  renderMarkdown(resultOutput, "## 正在生成\n\n请稍候，最终报告会显示在这里。");
+  renderLoading(resultOutput, "正在生成", "请稍候，最终报告会显示在这里。");
   renderReferences([]);
   latestAnalysisRows = [];
   latestAnalysisSummary = null;
+  setAnalysisExportEnabled(false);
   updateAnalysisPrompt();
 
   try {
@@ -158,9 +169,10 @@ slrForm.addEventListener("submit", async (event) => {
   if (!topic) return;
 
   setSlrRunning(true);
+  setSlrExportEnabled(false);
   slrStatus.textContent = "正在启动文献综述...";
   renderLiteratureSummary(slrSummary, null);
-  renderMarkdown(slrOutput, "## 正在生成文献综述\n\n系统正在准备文献来源并进行综合分析。");
+  renderLoading(slrOutput, "正在生成文献综述", "系统正在准备文献来源并进行综合分析。");
 
   try {
     const hasUserSources = selectedSlrPdfFiles.length || parseLiteratureLinkInput(slrReferenceInput.value).length;
@@ -179,12 +191,15 @@ slrForm.addEventListener("submit", async (event) => {
     }
 
     latestSlrMarkdown = payload.report_markdown || "";
+    latestSlrTopic = topic || "literature-review";
     renderSlrSummary(payload);
     renderMarkdown(slrOutput, latestSlrMarkdown || "## 暂无文献综述结果");
     slrStatus.textContent = `已完成，共综述 ${(payload.papers || []).length} 篇/项文献。`;
+    setSlrExportEnabled(Boolean(latestSlrMarkdown));
     if (hasUserSources) clearSelectedSlrPdfFiles();
   } catch (error) {
     latestSlrMarkdown = "";
+    setSlrExportEnabled(false);
     renderLiteratureSummary(slrSummary, null);
     renderMarkdown(slrOutput, `## 文献综述失败\n\n${error.message}`);
     slrStatus.textContent = "文献综述失败";
@@ -211,6 +226,7 @@ startAnalysisButton.addEventListener("click", async () => {
     return;
   }
   setAnalysisRunning(true);
+  setAnalysisExportEnabled(false);
   renderAnalysisRows([]);
   renderLiteratureSummary(analysisSummary, null);
   analysisStatus.textContent = "正在启动文献分析...";
@@ -236,10 +252,12 @@ startAnalysisButton.addEventListener("click", async () => {
     renderAnalysisRows(latestAnalysisRows);
     renderLiteratureSummary(analysisSummary, latestAnalysisSummary);
     analysisStatus.textContent = `已分析 ${latestAnalysisRows.length} 篇/项文献`;
+    setAnalysisExportEnabled(Boolean(latestAnalysisRows.length), Boolean(latestAnalysisRows.length || latestAnalysisSummary));
     updateAnalysisPrompt();
   } catch (error) {
     latestAnalysisRows = [];
     latestAnalysisSummary = null;
+    setAnalysisExportEnabled(false);
     renderAnalysisRows([]);
     renderLiteratureSummary(analysisSummary, null);
     analysisStatus.textContent = "文献分析失败";
@@ -263,6 +281,10 @@ literatureForm.addEventListener("submit", async (event) => {
   const previewReferences = [...linkReferences, ...pdfFiles.map(pdfToReference)];
   renderDoiPendingRows(previewReferences);
   renderLiteratureSummary(doiSummary, null);
+  latestDoiAnalysisRows = [];
+  latestDoiAnalysisSummary = null;
+  latestDoiTopic = "literature-analysis";
+  setLiteratureExportEnabled(false);
   setDoiAnalysisRunning(true);
   literatureStatus.textContent = "正在启动综合文献分析...";
 
@@ -277,11 +299,18 @@ literatureForm.addEventListener("submit", async (event) => {
     });
 
     const rows = Array.isArray(payload.rows) ? payload.rows : [];
+    latestDoiAnalysisRows = rows;
+    latestDoiAnalysisSummary = normalizeLiteratureSummary(payload.summary);
+    latestDoiTopic = entries[0]?.value || pdfFiles[0]?.name || "literature-analysis";
     renderDoiAnalysisRows(rows, previewReferences);
-    renderLiteratureSummary(doiSummary, normalizeLiteratureSummary(payload.summary));
+    renderLiteratureSummary(doiSummary, latestDoiAnalysisSummary);
     literatureStatus.textContent = `已分析 ${rows.length} 篇/项文献`;
+    setLiteratureExportEnabled(Boolean(rows.length), Boolean(rows.length || latestDoiAnalysisSummary));
     clearSelectedPdfFiles();
   } catch (error) {
+    latestDoiAnalysisRows = [];
+    latestDoiAnalysisSummary = null;
+    setLiteratureExportEnabled(false);
     renderDoiErrorRows(previewReferences, error.message);
     renderLiteratureSummary(doiSummary, null);
     literatureStatus.textContent = "综合文献分析失败";
@@ -316,6 +345,41 @@ downloadButton.addEventListener("click", () => {
   }
   downloadText(`${safeFileName(latestTopic)}.txt`, buildDownloadText());
   setStatus("TXT 报告已下载。");
+});
+
+slrDownloadMdButton.addEventListener("click", () => {
+  if (!latestSlrMarkdown) return;
+  downloadText(`${safeFileName(latestSlrTopic)}_文献综述.md`, latestSlrMarkdown);
+  slrStatus.textContent = "文献综述 Markdown 已下载。";
+});
+
+slrDownloadPdfButton.addEventListener("click", () => {
+  if (!latestSlrMarkdown) return;
+  downloadPdfDocument({
+    title: latestSlrTopic || "文献综述",
+    markdown: latestSlrMarkdown,
+    filename: `${safeFileName(latestSlrTopic)}_文献综述.pdf`,
+    onStatus: (message, isError = false) => {
+      slrStatus.textContent = message;
+      slrStatus.classList.toggle("error", isError);
+    },
+  });
+});
+
+literatureDownloadCsvButton.addEventListener("click", () => {
+  exportAnalysisCsv(latestDoiAnalysisRows, latestDoiTopic, literatureStatus);
+});
+
+literatureDownloadTxtButton.addEventListener("click", () => {
+  exportAnalysisTxt(latestDoiAnalysisRows, latestDoiAnalysisSummary, latestDoiTopic, literatureStatus);
+});
+
+analysisDownloadCsvButton.addEventListener("click", () => {
+  exportAnalysisCsv(latestAnalysisRows, latestTopic || "research-literature-analysis", analysisStatus);
+});
+
+analysisDownloadTxtButton.addEventListener("click", () => {
+  exportAnalysisTxt(latestAnalysisRows, latestAnalysisSummary, latestTopic || "research-literature-analysis", analysisStatus);
 });
 
 chatForm.addEventListener("submit", async (event) => {
@@ -391,7 +455,7 @@ function setSlrRunning(isRunning) {
   [slrCountInput, slrCategoryInput, slrStartDateInput, slrEndDateInput, slrCitationInput, slrUseSearchInput].forEach((field) => {
     field.disabled = isRunning;
   });
-  slrRunButton.textContent = isRunning ? "生成中..." : "生成文献综述";
+  slrRunButton.textContent = isRunning ? "生成中..." : (latestSlrMarkdown ? "重新生成文献综述" : "生成文献综述");
 }
 
 function setResultActionsEnabled(isEnabled) {
@@ -400,9 +464,30 @@ function setResultActionsEnabled(isEnabled) {
   downloadFormat.disabled = !isEnabled;
 }
 
+function setSlrExportEnabled(isEnabled) {
+  slrDownloadMdButton.disabled = !isEnabled;
+  slrDownloadPdfButton.disabled = !isEnabled;
+  slrDownloadMdButton.classList.toggle("is-hidden", !isEnabled);
+  slrDownloadPdfButton.classList.toggle("is-hidden", !isEnabled);
+}
+
+function setLiteratureExportEnabled(hasRows, hasText = hasRows) {
+  literatureDownloadCsvButton.disabled = !hasRows;
+  literatureDownloadTxtButton.disabled = !hasText;
+  literatureDownloadCsvButton.classList.toggle("is-hidden", !hasRows);
+  literatureDownloadTxtButton.classList.toggle("is-hidden", !hasText);
+}
+
+function setAnalysisExportEnabled(hasRows, hasText = hasRows) {
+  analysisDownloadCsvButton.disabled = !hasRows;
+  analysisDownloadTxtButton.disabled = !hasText;
+  analysisDownloadCsvButton.classList.toggle("is-hidden", !hasRows);
+  analysisDownloadTxtButton.classList.toggle("is-hidden", !hasText);
+}
+
 function setAnalysisRunning(isRunning) {
   startAnalysisButton.disabled = isRunning || !latestReferences.length || !latestMarkdown;
-  startAnalysisButton.textContent = isRunning ? "分析中..." : "开始文献分析";
+  startAnalysisButton.textContent = isRunning ? "分析中..." : (latestAnalysisRows.length ? "重新分析" : "开始文献分析");
 }
 
 function setDoiAnalysisRunning(isRunning) {
@@ -410,7 +495,7 @@ function setDoiAnalysisRunning(isRunning) {
   doiAnalyzeButton.disabled = isRunning;
   pdfInput.disabled = isRunning;
   clearPdfButton.disabled = isRunning || !selectedPdfFiles.length;
-  doiAnalyzeButton.textContent = isRunning ? "分析中..." : "开始综合分析";
+  doiAnalyzeButton.textContent = isRunning ? "分析中..." : (latestDoiAnalysisRows.length || latestDoiAnalysisSummary ? "重新分析" : "开始综合分析");
 }
 
 function setChatRunning(isRunning) {
@@ -1044,6 +1129,22 @@ function renderMarkdown(container, markdown) {
   container.innerHTML = markdownToHtml(markdown || "");
 }
 
+function renderLoading(container, title, message) {
+  container.innerHTML = `
+    <div class="loading-state" role="status" aria-live="polite">
+      <div class="loading-squares" aria-hidden="true">
+        <span class="loading-square loading-square-large"></span>
+        <span class="loading-square loading-square-medium"></span>
+        <span class="loading-square loading-square-small"></span>
+      </div>
+      <div class="loading-copy">
+        <h2>${escapeHtml(title)}</h2>
+        <p>${escapeHtml(message)}</p>
+      </div>
+    </div>
+  `;
+}
+
 function markdownToHtml(markdown) {
   const lines = String(markdown).split(/\r?\n/);
   let html = "";
@@ -1126,24 +1227,31 @@ function downloadText(filename, text) {
 }
 
 async function downloadPdfReport() {
-  setStatus("正在生成 PDF...");
+  await downloadPdfDocument({
+    title: latestTopic || "research-report",
+    markdown: buildDownloadText(),
+    filename: `${safeFileName(latestTopic)}.pdf`,
+    onStatus: setStatus,
+  });
+}
+
+async function downloadPdfDocument({ title, markdown, filename, onStatus }) {
+  onStatus("正在生成 PDF...");
   try {
     const response = await fetch(apiPath("/api/export/pdf"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        title: latestTopic || "research-report",
-        markdown: buildDownloadText(),
-      }),
+      body: JSON.stringify({ title, markdown }),
     });
     if (!response.ok) {
       const payload = await readJsonResponse(response);
+      throw new Error(payload.error || `HTTP ${response.status}`);
     }
     const blob = await response.blob();
-    downloadBlob(`${safeFileName(latestTopic)}.pdf`, blob);
-    setStatus("PDF 报告已下载。");
+    downloadBlob(filename, blob);
+    onStatus("PDF 已下载。");
   } catch (error) {
-    setStatus(`PDF 导出失败：${error.message}`, true);
+    onStatus(`PDF 导出失败：${error.message}`, true);
   }
 }
 
@@ -1156,6 +1264,78 @@ function downloadBlob(filename, blob) {
   link.click();
   link.remove();
   URL.revokeObjectURL(url);
+}
+
+function exportAnalysisCsv(rows, topic, statusElement) {
+  if (!rows.length) return;
+  const csv = rowsToCsv(rows);
+  downloadText(`${safeFileName(topic)}_文献分析.csv`, `\ufeff${csv}`);
+  statusElement.textContent = "文献分析 CSV 已下载。";
+}
+
+function exportAnalysisTxt(rows, summary, topic, statusElement) {
+  if (!rows.length && !summary) return;
+  downloadText(`${safeFileName(topic)}_文献分析.txt`, buildAnalysisText(rows, summary));
+  statusElement.textContent = "文献分析 TXT 已下载。";
+}
+
+function rowsToCsv(rows) {
+  const columns = analysisExportColumns();
+  const header = columns.map((column) => csvCell(column.label)).join(",");
+  const body = rows.map((row) => columns.map((column) => csvCell(column.value(row))).join(","));
+  return [header, ...body].join("\r\n");
+}
+
+function csvCell(value) {
+  return `"${String(value ?? "").replace(/"/g, '""')}"`;
+}
+
+function buildAnalysisText(rows, summary) {
+  const summaryText = summaryToText(summary);
+  const rowsText = rows.map((row, index) => {
+    const columns = analysisExportColumns();
+    return [
+      `## ${index + 1}. ${row.title || "未命名文献"}`,
+      ...columns.slice(1).map((column) => `**${column.label}：** ${column.value(row) || "未说明"}`),
+    ].join("\n\n");
+  }).join("\n\n");
+  return [summaryText, rowsText].filter(Boolean).join("\n\n---\n\n") || "暂无可导出的文献分析内容。";
+}
+
+function summaryToText(summary) {
+  if (!summary) return "";
+  const sections = [];
+  if (summary.overall_assessment) sections.push(`# 跨文献总结\n\n${summary.overall_assessment}`);
+  [
+    ["共同优势", summary.common_strengths],
+    ["共同弱点", summary.common_weaknesses],
+    ["方法模式", summary.methodological_patterns],
+    ["证据缺口", summary.evidence_gaps],
+    ["研究空白", summary.research_gaps],
+    ["来源与引用", summary.recommended_reading_order],
+    ["后续行动", summary.next_actions],
+  ].forEach(([title, items]) => {
+    if (Array.isArray(items) && items.length) {
+      sections.push(`## ${title}\n\n${items.map((item) => `- ${item}`).join("\n")}`);
+    }
+  });
+  if (summary.confidence) sections.push(`## 置信度\n\n${summary.confidence}`);
+  return sections.join("\n\n");
+}
+
+function analysisExportColumns() {
+  return [
+    { label: "文献/来源", value: (row) => row.title || "" },
+    { label: "链接", value: (row) => row.source || "" },
+    { label: "核心贡献", value: (row) => row.contribution || row.innovation || "" },
+    { label: "方法/证据", value: (row) => row.methodology || row.method || "" },
+    { label: "证据强度", value: (row) => row.evidence_strength || "" },
+    { label: "主要优势", value: (row) => row.strengths || "" },
+    { label: "主要局限", value: (row) => row.limitations || row.weaknesses || row.limitation || "" },
+    { label: "文献定位", value: (row) => row.literature_positioning || "" },
+    { label: "后续建议", value: (row) => row.actionable_suggestions || row.next_step || "" },
+    { label: "置信度", value: (row) => row.confidence || "" },
+  ];
 }
 
 function sleep(ms) {
