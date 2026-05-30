@@ -49,6 +49,7 @@ class SLRWorkflow:
         max_results = max(1, min(int(max_results or 20), 50))
         citation_format = normalize_citation_format(citation_format)
         search_query = extract_core_query(topic)
+        search_plan = await self._build_search_plan(topic, search_query)
         source_mode = normalize_source_mode(source_mode)
         normalized_user_items = [
             self._normalize_user_paper(item)
@@ -80,7 +81,7 @@ class SLRWorkflow:
             if external_limit > 0:
                 external_papers, search_counts, source_errors = self._search_sources(
                     topic=topic,
-                    search_query=search_query,
+                    search_plan=search_plan,
                     max_results=external_limit,
                     category=category,
                     start_date=start_date,
@@ -140,7 +141,7 @@ class SLRWorkflow:
         self,
         *,
         topic: str,
-        search_query: str,
+        search_plan: list[dict],
         max_results: int,
         category: str,
         start_date: str,
@@ -149,59 +150,184 @@ class SLRWorkflow:
         source_counts: dict[str, int] = {}
         source_errors: dict[str, str] = {}
         collected: list[dict] = []
-        source_calls = [
-            (
-                "arXiv",
-                lambda: [
-                    paper.to_dict()
-                    for paper in search_arxiv(
-                        topic,
-                        max_results=max_results,
-                        category=category or None,
-                        sort_by="relevance",
-                        start_date=start_date or None,
-                        end_date=end_date or None,
-                    )
-                ],
-            ),
-            (
-                "OpenAlex",
-                lambda: search_openalex(
-                    search_query,
-                    max_results=max_results,
-                    start_date=start_date,
-                    end_date=end_date,
-                ),
-            ),
-            (
-                "PubMed",
-                lambda: search_pubmed(
-                    search_query,
-                    max_results=max_results,
-                    start_date=start_date,
-                    end_date=end_date,
-                ),
-            ),
-            (
-                "Crossref",
-                lambda: search_crossref(
-                    search_query,
-                    max_results=max_results,
-                    start_date=start_date,
-                    end_date=end_date,
-                ),
-            ),
-        ]
-        for source_name, call in source_calls:
-            try:
-                results = call()
-            except Exception as error:
-                source_errors[source_name] = f"{type(error).__name__}: {error}"
-                self._log(f"{source_name} search unavailable: {error}")
+        for plan in search_plan:
+            query = str(plan.get("query") or "").strip()
+            if not query:
                 continue
-            source_counts[source_name] = len(results)
-            collected.extend(results)
-        return self._dedupe_and_rank(collected, max_results=max_results), source_counts, source_errors
+            label = str(plan.get("label") or "search")
+            target_language = str(plan.get("target_language") or "unknown")
+            target_count = max(1, min(max_results, int(plan.get("target_count") or max_results)))
+            per_source_limit = max(target_count, min(max_results, target_count * 2))
+            source_calls = [
+                (
+                    "arXiv",
+                    lambda query=query: [
+                        paper.to_dict()
+                        for paper in search_arxiv(
+                            query,
+                            max_results=per_source_limit,
+                            category=category or None,
+                            sort_by="relevance",
+                            start_date=start_date or None,
+                            end_date=end_date or None,
+                        )
+                    ],
+                ),
+                (
+                    "OpenAlex",
+                    lambda query=query: search_openalex(
+                        query,
+                        max_results=per_source_limit,
+                        start_date=start_date,
+                        end_date=end_date,
+                    ),
+                ),
+                (
+                    "PubMed",
+                    lambda query=query: search_pubmed(
+                        query,
+                        max_results=per_source_limit,
+                        start_date=start_date,
+                        end_date=end_date,
+                    ),
+                ),
+                (
+                    "Crossref",
+                    lambda query=query: search_crossref(
+                        query,
+                        max_results=per_source_limit,
+                        start_date=start_date,
+                        end_date=end_date,
+                    ),
+                ),
+            ]
+            for source_name, call in source_calls:
+                source_key = f"{source_name} {label}"
+                try:
+                    results = call()
+                except Exception as error:
+                    source_errors[source_key] = f"{type(error).__name__}: {error}"
+                    self._log(f"{source_key} search unavailable: {error}")
+                    continue
+                normalized_results = [
+                    {
+                        **paper,
+                        "search_query": query,
+                        "search_language": target_language,
+                        "output_language": str(plan.get("output_language") or target_language),
+                    }
+                    for paper in results
+                ]
+                source_counts[source_key] = len(normalized_results)
+                collected.extend(normalized_results)
+
+        deduped = self._dedupe_and_rank(collected, max_results=max(max_results * 2, max_results))
+        return self._select_by_search_plan(deduped, search_plan, max_results=max_results), source_counts, source_errors
+
+    async def _build_search_plan(self, topic: str, search_query: str) -> list[dict]:
+        if self._contains_cjk(topic):
+            english_query = await self._translate_query_to_english(topic, search_query)
+            english_query = english_query or search_query
+            return [
+                {
+                    "label": "中文检索",
+                    "query": search_query,
+                    "target_language": "zh",
+                    "output_language": "zh",
+                    "target_ratio": 0.5,
+                },
+                {
+                    "label": "English search",
+                    "query": english_query,
+                    "target_language": "en",
+                    "output_language": "zh",
+                    "target_ratio": 0.5,
+                },
+            ]
+        return [
+            {
+                "label": "English search",
+                "query": search_query,
+                "target_language": "en",
+                "output_language": "en",
+                "target_ratio": 0.8,
+            }
+        ]
+
+    async def _translate_query_to_english(self, topic: str, fallback_query: str) -> str:
+        system_prompt = """
+You generate concise academic search queries.
+Return only valid JSON: {"query":"..."}.
+Translate Chinese research topics into English scholarly keywords.
+Keep the query under 8 words. Remove instructions such as review, survey, papers, literature.
+""".strip()
+        user_prompt = f"Topic:\n{topic}\n\nFallback query:\n{fallback_query}"
+        try:
+            content = await self.llm.complete(
+                system_prompt=system_prompt,
+                user_prompt=user_prompt,
+                model=os.getenv("SLR_MODEL") or os.getenv("RESEARCH_MODEL"),
+                temperature=0.1,
+                max_tokens=160,
+            )
+            data = self._parse_json(content)
+            query = str(data.get("query") or "").strip() if isinstance(data, dict) else ""
+            return query[:120]
+        except (LLMServiceError, ValueError, TypeError, json.JSONDecodeError):
+            self._log("English query translation failed; using original query.")
+            return fallback_query
+
+    @staticmethod
+    def _select_by_search_plan(papers: list[dict], search_plan: list[dict], *, max_results: int) -> list[dict]:
+        if not search_plan:
+            return papers[:max_results]
+        buckets = {
+            "zh": [paper for paper in papers if SLRWorkflow._paper_language(paper) == "zh"],
+            "en": [paper for paper in papers if SLRWorkflow._paper_language(paper) == "en"],
+            "other": [paper for paper in papers if SLRWorkflow._paper_language(paper) not in {"zh", "en"}],
+        }
+        selected: list[dict] = []
+        selected_keys: set[str] = set()
+
+        for plan in search_plan:
+            language = str(plan.get("target_language") or "")
+            ratio = float(plan.get("target_ratio") or 0)
+            target = max(1, round(max_results * ratio))
+            if len(search_plan) == 1:
+                target = max_results
+            for paper in buckets.get(language, [])[:target]:
+                key = SLRWorkflow._paper_key(paper)
+                if key in selected_keys:
+                    continue
+                selected.append(paper)
+                selected_keys.add(key)
+                if len(selected) >= max_results:
+                    return selected
+
+        for paper in papers:
+            key = SLRWorkflow._paper_key(paper)
+            if key in selected_keys:
+                continue
+            selected.append(paper)
+            selected_keys.add(key)
+            if len(selected) >= max_results:
+                break
+        return selected
+
+    @staticmethod
+    def _paper_language(paper: dict) -> str:
+        text = " ".join(
+            str(paper.get(key) or "")
+            for key in ("title", "abstract", "journal")
+        )
+        if SLRWorkflow._contains_cjk(text):
+            return "zh"
+        ascii_letters = len(re.findall(r"[A-Za-z]", text))
+        return "en" if ascii_letters >= 12 else "other"
+
+    @staticmethod
+    def _contains_cjk(value: str) -> bool:
+        return bool(re.search(r"[\u3400-\u9fff]", value or ""))
 
     async def _extract_annotations(self, papers: list[dict]) -> list[dict]:
         batches = [papers[index : index + 5] for index in range(0, len(papers), 5)]
@@ -221,6 +347,10 @@ class SLRWorkflow:
         return self._align_annotations(all_annotations, papers)
 
     async def _extract_batch(self, papers: list[dict]) -> list[dict]:
+        use_chinese = any(
+            paper.get("output_language") == "zh" or self._contains_cjk(str(paper.get("search_query") or ""))
+            for paper in papers
+        )
         system_prompt = """
 You extract structured metadata for a systematic literature review.
 Return only a valid JSON array. Do not use markdown fences.
@@ -247,6 +377,8 @@ For each paper return:
 }
 """.strip()
         )
+        if use_chinese:
+            user_prompt += "\n\nOutput language: Chinese. Translate analytical fields into Chinese; keep paper titles unchanged."
         try:
             content = await self.llm.complete(
                 system_prompt=system_prompt,
@@ -277,6 +409,7 @@ Return only valid JSON with this schema:
   "limitations_of_review": "..."
 }
 Use concise Chinese unless the topic is explicitly English-only.
+If the topic is mainly Chinese, all narrative values must be Chinese. Keep paper titles, author names, DOIs, and source names unchanged.
 """.strip()
         user_prompt = (
             f"Topic:\n{topic}\n\n"
@@ -315,12 +448,67 @@ Use concise Chinese unless the topic is explicitly English-only.
         source_mode: str,
     ) -> str:
         today = datetime.now().strftime("%Y-%m-%d")
-        scope_parts = [f"query `{search_query}`", f"sources {search_source}", "deduplicated by DOI/URL/title"]
+        use_chinese = self._contains_cjk(topic)
+        scope_parts = (
+            [f"检索词 `{search_query}`", f"来源 {search_source}", "按 DOI / URL / 标题去重"]
+            if use_chinese
+            else [f"query `{search_query}`", f"sources {search_source}", "deduplicated by DOI/URL/title"]
+        )
         if category:
-            scope_parts.append(f"arXiv category `{category}`")
+            scope_parts.append(f"arXiv 分类 `{category}`" if use_chinese else f"arXiv category `{category}`")
         if start_date or end_date:
-            scope_parts.append(f"date window {start_date or 'open'} to {end_date or 'open'}")
+            scope_parts.append(
+                f"时间范围 {start_date or '不限'} 至 {end_date or '不限'}"
+                if use_chinese
+                else f"date window {start_date or 'open'} to {end_date or 'open'}"
+            )
         citation_label = {"apa": "APA 7th edition", "ieee": "IEEE", "bibtex": "BibTeX"}[citation_format]
+        methodology = (
+            f"本综述在 {today} 检索并合并了 {len(papers)} 条去重后的学术记录，检索词为 `{search_query}`。"
+            "系统分别查询多个来源，随后按 DOI / URL / 标题合并去重，再通过批量语言模型抽取和跨文献综合生成综述。"
+            f"最终去重前的来源统计：{self._format_source_counts(source_counts)}。"
+            if use_chinese
+            else (
+                f"This review surveyed {len(papers)} deduplicated scholarly records retrieved on {today} "
+                f"using the query `{search_query}`. Sources were searched independently, merged by DOI/URL/title, "
+                "then analyzed through batch language-model extraction followed by cross-paper synthesis. "
+                f"Source counts before final deduplication: {self._format_source_counts(source_counts)}."
+            )
+        )
+        default_limits = (
+            "覆盖范围取决于已连接来源返回的元数据和摘要，个别论文仍需结合全文复核。"
+            if use_chinese
+            else "Coverage depends on metadata and abstracts returned by the connected sources."
+        )
+
+        if use_chinese:
+            sections = [
+                f"# 系统性文献综述：{topic}",
+                f"**日期**：{today}",
+                f"**纳入文献数**：{len(papers)}",
+                f"**范围**：{'，'.join(scope_parts)}",
+                f"**引用格式**：{citation_label}",
+                f"**来源模式**：{source_mode}",
+                "## 执行摘要",
+                synthesis.get("executive_summary", ""),
+                "## 方法说明",
+                methodology,
+                f"**综述局限**：{synthesis.get('limitations_of_review') or default_limits}",
+                "## 主题聚类",
+                self._render_themes(synthesis.get("themes", []), use_chinese=use_chinese),
+                "## 共识与分歧",
+                "**共识**：\n" + self._render_bullets(synthesis.get("convergences", [])),
+                "**分歧**：\n" + self._render_bullets(synthesis.get("disagreements", [])),
+                "## 研究空白与开放问题",
+                self._render_bullets(synthesis.get("gaps", [])),
+                "## 方法模式",
+                self._render_bullets(synthesis.get("methodological_patterns", [])),
+                "## 逐篇文献注释",
+                self._render_annotations(annotations, use_chinese=use_chinese),
+                "## 参考文献",
+                self._render_references(references, citation_format),
+            ]
+            return "\n\n".join(section.strip() for section in sections if section is not None).strip() + "\n"
 
         sections = [
             f"# Systematic Literature Review: {topic}",
@@ -332,15 +520,10 @@ Use concise Chinese unless the topic is explicitly English-only.
             "## Executive Summary",
             synthesis.get("executive_summary", ""),
             "## Methodology",
-            (
-                f"This review surveyed {len(papers)} deduplicated scholarly records retrieved on {today} "
-                f"using the query `{search_query}`. Sources were searched independently, merged by DOI/URL/title, "
-                "then analyzed through batch language-model extraction followed by cross-paper synthesis. "
-                f"Source counts before final deduplication: {self._format_source_counts(source_counts)}."
-            ),
-            f"**Limitations of this review**: {synthesis.get('limitations_of_review') or 'Coverage depends on metadata and abstracts returned by the connected sources.'}",
+            methodology,
+            f"**Limitations of this review**: {synthesis.get('limitations_of_review') or default_limits}",
             "## Themes",
-            self._render_themes(synthesis.get("themes", [])),
+            self._render_themes(synthesis.get("themes", []), use_chinese=use_chinese),
             "## Convergences and Disagreements",
             "**Convergences**:\n" + self._render_bullets(synthesis.get("convergences", [])),
             "**Disagreements**:\n" + self._render_bullets(synthesis.get("disagreements", [])),
@@ -349,43 +532,61 @@ Use concise Chinese unless the topic is explicitly English-only.
             "## Methodological Patterns",
             self._render_bullets(synthesis.get("methodological_patterns", [])),
             "## Per-Paper Annotations",
-            self._render_annotations(annotations),
+            self._render_annotations(annotations, use_chinese=use_chinese),
             "## References",
             self._render_references(references, citation_format),
         ]
         return "\n\n".join(section.strip() for section in sections if section is not None).strip() + "\n"
 
-    def _render_themes(self, themes: list[dict]) -> str:
+    def _render_themes(self, themes: list[dict], *, use_chinese: bool = False) -> str:
         if not themes:
-            return "No stable cross-paper themes were identified."
+            return "未识别出稳定的跨文献主题。" if use_chinese else "No stable cross-paper themes were identified."
         blocks = []
         for index, theme in enumerate(themes[:6], start=1):
             paper_ids = ", ".join(str(item) for item in theme.get("paper_ids", []) if item)
-            suffix = f"\n\nRelated papers: {paper_ids}" if paper_ids else ""
-            blocks.append(f"### Theme {index}: {theme.get('name', 'Untitled theme')}\n\n{theme.get('summary', '')}{suffix}")
+            suffix = f"\n\n相关论文：{paper_ids}" if paper_ids and use_chinese else (f"\n\nRelated papers: {paper_ids}" if paper_ids else "")
+            prefix = f"主题 {index}" if use_chinese else f"Theme {index}"
+            fallback = "未命名主题" if use_chinese else "Untitled theme"
+            blocks.append(f"### {prefix}: {theme.get('name', fallback)}\n\n{theme.get('summary', '')}{suffix}")
         return "\n\n".join(blocks)
 
-    def _render_annotations(self, annotations: list[dict]) -> str:
+    def _render_annotations(self, annotations: list[dict], *, use_chinese: bool = False) -> str:
         blocks = []
         for annotation in sorted(annotations, key=lambda item: (year_from_paper(item), str(item.get("title", "")))):
             findings = annotation.get("key_findings", [])
             if not isinstance(findings, list):
                 findings = [str(findings)]
-            blocks.append(
-                f"### {annotation.get('title', 'Untitled paper')}\n\n"
-                f"**Source**: {annotation.get('source', 'Unknown')}\n\n"
-                f"**Source ID**: {annotation.get('arxiv_id', '')}\n\n"
-                f"**Research question**: {annotation.get('research_question', '')}\n\n"
-                f"**Methodology**: {annotation.get('methodology', '')}\n\n"
-                f"**Key findings**:\n{self._render_bullets(findings)}\n\n"
-                f"**Limitations**: {annotation.get('limitations', '')}\n\n"
-                f"**Evidence type**: {annotation.get('evidence_type', 'Unknown')}"
-            )
+            if use_chinese:
+                blocks.append(
+                    f"### {annotation.get('title', '未命名论文')}\n\n"
+                    f"**来源**：{annotation.get('source', '未知')}\n\n"
+                    f"**来源 ID**：{annotation.get('arxiv_id', '')}\n\n"
+                    f"**研究问题**：{annotation.get('research_question', '')}\n\n"
+                    f"**方法**：{annotation.get('methodology', '')}\n\n"
+                    f"**关键发现**：\n{self._render_bullets(findings)}\n\n"
+                    f"**局限**：{annotation.get('limitations', '')}\n\n"
+                    f"**证据类型**：{annotation.get('evidence_type', '未知')}"
+                )
+            else:
+                blocks.append(
+                    f"### {annotation.get('title', 'Untitled paper')}\n\n"
+                    f"**Source**: {annotation.get('source', 'Unknown')}\n\n"
+                    f"**Source ID**: {annotation.get('arxiv_id', '')}\n\n"
+                    f"**Research question**: {annotation.get('research_question', '')}\n\n"
+                    f"**Methodology**: {annotation.get('methodology', '')}\n\n"
+                    f"**Key findings**:\n{self._render_bullets(findings)}\n\n"
+                    f"**Limitations**: {annotation.get('limitations', '')}\n\n"
+                    f"**Evidence type**: {annotation.get('evidence_type', 'Unknown')}"
+                )
         return "\n\n".join(blocks)
 
     @staticmethod
     def _fallback_annotations(papers: list[dict]) -> list[dict]:
         annotations = []
+        use_chinese = any(
+            paper.get("output_language") == "zh" or SLRWorkflow._contains_cjk(str(paper.get("search_query") or ""))
+            for paper in papers
+        )
         for paper in papers:
             abstract = str(paper.get("abstract", "") or "")
             annotations.append(
@@ -396,11 +597,11 @@ Use concise Chinese unless the topic is explicitly English-only.
                     "authors": paper.get("authors", []),
                     "published_date": paper.get("published", ""),
                     "source_origin": paper.get("source_origin", ""),
-                    "research_question": abstract[:240] or "Requires abstract or full-text review.",
-                    "methodology": "Method details require model extraction or full-paper review.",
-                    "key_findings": ["Abstract-based extraction is unavailable; inspect the paper directly."],
-                    "limitations": "Fallback annotation based on available metadata only.",
-                    "evidence_type": "Unknown",
+                    "research_question": abstract[:240] or ("需要结合摘要或全文进一步确认。" if use_chinese else "Requires abstract or full-text review."),
+                    "methodology": "方法细节需要通过模型抽取或全文阅读进一步确认。" if use_chinese else "Method details require model extraction or full-paper review.",
+                    "key_findings": ["当前只能基于元数据生成兜底注释，建议进一步查看原文。"] if use_chinese else ["Abstract-based extraction is unavailable; inspect the paper directly."],
+                    "limitations": "该注释仅基于可用元数据生成。" if use_chinese else "Fallback annotation based on available metadata only.",
+                    "evidence_type": "未知" if use_chinese else "Unknown",
                 }
             )
         return annotations
@@ -409,6 +610,29 @@ Use concise Chinese unless the topic is explicitly English-only.
     def _fallback_synthesis(topic: str, annotations: list[dict], papers: list[dict]) -> dict:
         categories = sorted({category for paper in papers for category in paper.get("categories", [])})
         sources = sorted({str(paper.get("source", "")) for paper in papers if paper.get("source")})
+        use_chinese = SLRWorkflow._contains_cjk(topic) or any(
+            paper.get("output_language") == "zh" or SLRWorkflow._contains_cjk(str(paper.get("search_query") or ""))
+            for paper in papers
+        )
+        if use_chinese:
+            return {
+                "executive_summary": (
+                    f"本综述检索到 {len(papers)} 条与“{topic}”相关的学术记录。"
+                    "当前结果提供了可用的元数据和逐篇摘要级注释，但跨文献主题综合仍建议结合全文或更完整摘要复核。"
+                ),
+                "themes": [
+                    {
+                        "name": "基于元数据的文献集合",
+                        "summary": f"来源包括：{', '.join(sources) or '未提供来源'}；分类包括：{', '.join(categories[:8]) or '未提供分类'}。",
+                        "paper_ids": [str(paper.get("id", "")) for paper in papers[:8]],
+                    }
+                ],
+                "convergences": ["检索结果在标题、摘要或元数据中与用户指定主题存在相关性。"],
+                "disagreements": ["在缺少稳定综合结果时，暂不能可靠判断文献之间的明确分歧。"],
+                "gaps": ["在提出强结论前，需要进一步核查全文方法、数据集和评价细节。"],
+                "methodological_patterns": ["当前为元数据兜底综合，方法细节抽取尚不完整。"],
+                "limitations_of_review": "该兜底综合基于可用元数据和摘要生成。",
+            }
         return {
             "executive_summary": (
                 f"本综述检索到 {len(papers)} 条与“{topic}”相关的学术记录。"

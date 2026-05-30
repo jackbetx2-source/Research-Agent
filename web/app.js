@@ -44,12 +44,15 @@ const slrPdfInput = $("#slrPdfInput");
 const slrPdfSummary = $("#slrPdfSummary");
 const clearSlrPdfButton = $("#clearSlrPdfButton");
 const slrReferenceInput = $("#slrReferenceInput");
-const slrDownloadMdButton = $("#slrDownloadMdButton");
-const slrDownloadPdfButton = $("#slrDownloadPdfButton");
-const literatureDownloadCsvButton = $("#literatureDownloadCsvButton");
-const literatureDownloadTxtButton = $("#literatureDownloadTxtButton");
-const analysisDownloadCsvButton = $("#analysisDownloadCsvButton");
-const analysisDownloadTxtButton = $("#analysisDownloadTxtButton");
+const slrExportFormatWrap = $("#slrExportFormatWrap");
+const slrExportFormat = $("#slrExportFormat");
+const slrExportButton = $("#slrExportButton");
+const literatureExportFormatWrap = $("#literatureExportFormatWrap");
+const literatureExportFormat = $("#literatureExportFormat");
+const literatureExportButton = $("#literatureExportButton");
+const analysisExportFormatWrap = $("#analysisExportFormatWrap");
+const analysisExportFormat = $("#analysisExportFormat");
+const analysisExportButton = $("#analysisExportButton");
 const chatForm = $("#chatForm");
 const chatInput = $("#chatInput");
 const chatMessages = $("#chatMessages");
@@ -347,39 +350,38 @@ downloadButton.addEventListener("click", () => {
   setStatus("TXT 报告已下载。");
 });
 
-slrDownloadMdButton.addEventListener("click", () => {
+slrExportButton.addEventListener("click", () => {
   if (!latestSlrMarkdown) return;
+  if (slrExportFormat.value === "pdf") {
+    downloadPdfDocument({
+      title: latestSlrTopic || "文献综述",
+      markdown: latestSlrMarkdown,
+      filename: `${safeFileName(latestSlrTopic)}_文献综述.pdf`,
+      onStatus: (message, isError = false) => {
+        slrStatus.textContent = message;
+        slrStatus.classList.toggle("error", isError);
+      },
+    });
+    return;
+  }
   downloadText(`${safeFileName(latestSlrTopic)}_文献综述.md`, latestSlrMarkdown);
   slrStatus.textContent = "文献综述 Markdown 已下载。";
 });
 
-slrDownloadPdfButton.addEventListener("click", () => {
-  if (!latestSlrMarkdown) return;
-  downloadPdfDocument({
-    title: latestSlrTopic || "文献综述",
-    markdown: latestSlrMarkdown,
-    filename: `${safeFileName(latestSlrTopic)}_文献综述.pdf`,
-    onStatus: (message, isError = false) => {
-      slrStatus.textContent = message;
-      slrStatus.classList.toggle("error", isError);
-    },
-  });
-});
-
-literatureDownloadCsvButton.addEventListener("click", () => {
+literatureExportButton.addEventListener("click", () => {
+  if (literatureExportFormat.value === "txt") {
+    exportAnalysisTxt(latestDoiAnalysisRows, latestDoiAnalysisSummary, latestDoiTopic, literatureStatus);
+    return;
+  }
   exportAnalysisCsv(latestDoiAnalysisRows, latestDoiTopic, literatureStatus);
 });
 
-literatureDownloadTxtButton.addEventListener("click", () => {
-  exportAnalysisTxt(latestDoiAnalysisRows, latestDoiAnalysisSummary, latestDoiTopic, literatureStatus);
-});
-
-analysisDownloadCsvButton.addEventListener("click", () => {
+analysisExportButton.addEventListener("click", () => {
+  if (analysisExportFormat.value === "txt") {
+    exportAnalysisTxt(latestAnalysisRows, latestAnalysisSummary, latestTopic || "research-literature-analysis", analysisStatus);
+    return;
+  }
   exportAnalysisCsv(latestAnalysisRows, latestTopic || "research-literature-analysis", analysisStatus);
-});
-
-analysisDownloadTxtButton.addEventListener("click", () => {
-  exportAnalysisTxt(latestAnalysisRows, latestAnalysisSummary, latestTopic || "research-literature-analysis", analysisStatus);
 });
 
 chatForm.addEventListener("submit", async (event) => {
@@ -465,24 +467,34 @@ function setResultActionsEnabled(isEnabled) {
 }
 
 function setSlrExportEnabled(isEnabled) {
-  slrDownloadMdButton.disabled = !isEnabled;
-  slrDownloadPdfButton.disabled = !isEnabled;
-  slrDownloadMdButton.classList.toggle("is-hidden", !isEnabled);
-  slrDownloadPdfButton.classList.toggle("is-hidden", !isEnabled);
+  slrExportFormat.disabled = !isEnabled;
+  slrExportButton.disabled = !isEnabled;
+  slrExportFormatWrap.classList.toggle("is-hidden", !isEnabled);
+  slrExportButton.classList.toggle("is-hidden", !isEnabled);
 }
 
 function setLiteratureExportEnabled(hasRows, hasText = hasRows) {
-  literatureDownloadCsvButton.disabled = !hasRows;
-  literatureDownloadTxtButton.disabled = !hasText;
-  literatureDownloadCsvButton.classList.toggle("is-hidden", !hasRows);
-  literatureDownloadTxtButton.classList.toggle("is-hidden", !hasText);
+  const isEnabled = Boolean(hasRows || hasText);
+  literatureExportFormat.disabled = !isEnabled;
+  literatureExportButton.disabled = !isEnabled;
+  literatureExportFormatWrap.classList.toggle("is-hidden", !isEnabled);
+  literatureExportButton.classList.toggle("is-hidden", !isEnabled);
+  literatureExportFormat.querySelector('option[value="csv"]').disabled = !hasRows;
+  literatureExportFormat.querySelector('option[value="txt"]').disabled = !hasText;
+  if (!hasRows && hasText) literatureExportFormat.value = "txt";
+  if (hasRows) literatureExportFormat.value = "csv";
 }
 
 function setAnalysisExportEnabled(hasRows, hasText = hasRows) {
-  analysisDownloadCsvButton.disabled = !hasRows;
-  analysisDownloadTxtButton.disabled = !hasText;
-  analysisDownloadCsvButton.classList.toggle("is-hidden", !hasRows);
-  analysisDownloadTxtButton.classList.toggle("is-hidden", !hasText);
+  const isEnabled = Boolean(hasRows || hasText);
+  analysisExportFormat.disabled = !isEnabled;
+  analysisExportButton.disabled = !isEnabled;
+  analysisExportFormatWrap.classList.toggle("is-hidden", !isEnabled);
+  analysisExportButton.classList.toggle("is-hidden", !isEnabled);
+  analysisExportFormat.querySelector('option[value="csv"]').disabled = !hasRows;
+  analysisExportFormat.querySelector('option[value="txt"]').disabled = !hasText;
+  if (!hasRows && hasText) analysisExportFormat.value = "txt";
+  if (hasRows) analysisExportFormat.value = "csv";
 }
 
 function setAnalysisRunning(isRunning) {

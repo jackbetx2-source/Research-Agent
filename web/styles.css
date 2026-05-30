@@ -312,6 +312,36 @@ body {
   background: #111827;
 }
 
+.inline-export-select {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.inline-export-select span {
+  color: var(--muted);
+}
+
+.inline-export-select select {
+  min-height: 30px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  outline: none;
+  cursor: pointer;
+}
+
 .is-hidden {
   display: none !important;
 }
@@ -353,18 +383,86 @@ body {
 
 .slr-controls label {
   display: grid;
-  gap: 8px;
+  gap: 7px;
+  min-width: 0;
+}
+
+.slr-controls label:not(.checkbox-line) {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f8fafc;
+  transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.slr-controls label:not(.checkbox-line):focus-within {
+  border-color: var(--accent);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
+}
+
+.slr-controls label:not(.checkbox-line) span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.slr-controls select,
+.slr-controls input[type="text"] {
+  width: 100%;
+  min-height: 34px;
+  border: 0;
+  border-radius: 6px;
+  padding: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  outline: none;
+}
+
+.slr-controls select {
+  cursor: pointer;
+}
+
+.slr-controls input[type="text"]::placeholder {
+  color: #94a3b8;
+  font-weight: 600;
 }
 
 .slr-controls .checkbox-line {
   align-items: center;
   display: flex;
-  gap: 8px;
+  gap: 9px;
+  min-height: 34px;
+  align-self: end;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f8fafc;
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
 
 .slr-controls .checkbox-line input {
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  accent-color: var(--accent);
+}
+
+.slr-controls .checkbox-line span {
+  color: inherit;
+  font-size: 13px;
+}
+
+.slr-controls .checkbox-line:hover,
+.slr-controls .checkbox-line:has(input:checked) {
+  border-color: var(--accent);
+  background: rgba(15, 118, 110, 0.08);
+  color: var(--accent-strong);
 }
 
 .date-presets {

@@ -164,8 +164,14 @@
             <div class="combined-actions">
               <div class="primary-action-group">
                 <button id="slrRunButton" type="submit">生成文献综述</button>
-                <button id="slrDownloadMdButton" class="is-hidden" type="button" disabled>导出 MD</button>
-                <button id="slrDownloadPdfButton" class="is-hidden" type="button" disabled>导出 PDF</button>
+                <label id="slrExportFormatWrap" class="inline-export-select is-hidden">
+                  <span>格式</span>
+                  <select id="slrExportFormat" disabled>
+                    <option value="md">MD</option>
+                    <option value="pdf">PDF</option>
+                  </select>
+                </label>
+                <button id="slrExportButton" class="is-hidden" type="button" disabled>导出</button>
               </div>
               <span class="empty-state">文件、链接和补充说明都是选填；系统会按可用材料生成主题、共识、分歧、空白和引用。</span>
             </div>
@@ -224,8 +230,14 @@
             <div class="combined-actions">
               <div class="primary-action-group">
                 <button id="doiAnalyzeButton" type="submit">开始综合分析</button>
-                <button id="literatureDownloadCsvButton" class="is-hidden" type="button" disabled>导出 CSV</button>
-                <button id="literatureDownloadTxtButton" class="is-hidden" type="button" disabled>导出 TXT</button>
+                <label id="literatureExportFormatWrap" class="inline-export-select is-hidden">
+                  <span>格式</span>
+                  <select id="literatureExportFormat" disabled>
+                    <option value="csv">CSV</option>
+                    <option value="txt">TXT</option>
+                  </select>
+                </label>
+                <button id="literatureExportButton" class="is-hidden" type="button" disabled>导出</button>
               </div>
               <span class="empty-state">可同时提交链接和 PDF / DOCX，系统会合并后分析。</span>
             </div>
@@ -274,8 +286,14 @@
             <p id="analysisPrompt">研究完成后，可以启动 LLM 文献分析 workflow。</p>
             <div class="primary-action-group">
               <button id="startAnalysisButton" type="button" disabled>开始文献分析</button>
-              <button id="analysisDownloadCsvButton" class="is-hidden" type="button" disabled>导出 CSV</button>
-              <button id="analysisDownloadTxtButton" class="is-hidden" type="button" disabled>导出 TXT</button>
+              <label id="analysisExportFormatWrap" class="inline-export-select is-hidden">
+                <span>格式</span>
+                <select id="analysisExportFormat" disabled>
+                  <option value="csv">CSV</option>
+                  <option value="txt">TXT</option>
+                </select>
+              </label>
+              <button id="analysisExportButton" class="is-hidden" type="button" disabled>导出</button>
             </div>
           </div>
           <div class="analysis-table-wrap">
