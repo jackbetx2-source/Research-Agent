@@ -409,6 +409,13 @@ analysisExportButton.addEventListener("click", () => {
   });
 });
 
+chatInput.addEventListener("keydown", (event) => {
+  if (event.key !== "Enter" || !event.ctrlKey || event.isComposing) return;
+  event.preventDefault();
+  if (chatSendButton.disabled || !chatInput.value.trim()) return;
+  chatForm.requestSubmit();
+});
+
 chatForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const message = chatInput.value.trim();
