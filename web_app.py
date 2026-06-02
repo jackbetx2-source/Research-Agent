@@ -345,7 +345,7 @@ class ResearchWebHandler(BaseHTTPRequestHandler):
                 )
                 return
 
-            topic = "user-provided literature links and PDF analysis"
+            topic = str(fields.get("topic", "") or "").strip() or "user-provided literature links and PDF analysis"
             final_report = self._build_pdf_context(references)
             if context_documents:
                 context_block = self._build_uploaded_context(context_documents)

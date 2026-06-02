@@ -282,6 +282,7 @@ literatureForm.addEventListener("submit", async (event) => {
 
   const linkReferences = entries.map(literatureLinkToReference);
   const previewReferences = [...linkReferences, ...pdfFiles.map(pdfToReference)];
+  const literatureTopic = buildLiteratureTopic(entries, pdfFiles, userContext);
   renderDoiPendingRows(previewReferences);
   renderLiteratureSummary(doiSummary, null);
   latestDoiAnalysisRows = [];
@@ -293,8 +294,8 @@ literatureForm.addEventListener("submit", async (event) => {
 
   try {
     const response = pdfFiles.length
-      ? await submitCombinedLiteratureAnalysis(linkReferences, pdfFiles, userContext)
-      : await submitLinkLiteratureAnalysis(linkReferences, userContext);
+      ? await submitCombinedLiteratureAnalysis(linkReferences, pdfFiles, userContext, literatureTopic)
+      : await submitLinkLiteratureAnalysis(linkReferences, userContext, literatureTopic);
     let payload = await readJsonResponse(response);
     if (!response.ok) throw new Error(payload.error || `HTTP ${response.status}`);
     if (payload.job_id) payload = await waitForJob("/api/literature-analysis", payload.job_id, (message) => {
@@ -304,7 +305,7 @@ literatureForm.addEventListener("submit", async (event) => {
     const rows = Array.isArray(payload.rows) ? payload.rows : [];
     latestDoiAnalysisRows = rows;
     latestDoiAnalysisSummary = normalizeLiteratureSummary(payload.summary);
-    latestDoiTopic = entries[0]?.value || pdfFiles[0]?.name || "literature-analysis";
+    latestDoiTopic = literatureTopic;
     renderDoiAnalysisRows(rows, previewReferences);
     renderLiteratureSummary(doiSummary, latestDoiAnalysisSummary);
     literatureStatus.textContent = `已分析 ${rows.length} 篇/项文献`;
@@ -1102,24 +1103,33 @@ function readableTitleFromUrl(url) {
   }
 }
 
-async function submitLinkLiteratureAnalysis(references, userContext = "") {
+async function submitLinkLiteratureAnalysis(references, userContext = "", topic = "literature-analysis") {
   return fetch(apiPath("/api/literature-analysis"), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      topic: "user-provided DOI and literature link analysis",
+      topic,
       references,
       final_report: buildLiteratureUserContext(userContext, "The user provided DOI identifiers or literature links directly in the literature assistant."),
     }),
   });
 }
 
-async function submitCombinedLiteratureAnalysis(references, pdfFiles, userContext = "") {
+async function submitCombinedLiteratureAnalysis(references, pdfFiles, userContext = "", topic = "literature-analysis") {
   const formData = new FormData();
+  formData.append("topic", topic);
   formData.append("references", JSON.stringify(references));
   formData.append("user_context", userContext);
   pdfFiles.forEach((file) => formData.append("pdf", file));
   return fetch(apiPath("/api/literature-analysis/pdf"), { method: "POST", body: formData });
+}
+
+function buildLiteratureTopic(entries, pdfFiles, userContext = "") {
+  const context = String(userContext || "").trim();
+  if (context) return context.slice(0, 400);
+  if (entries.length) return entries.map((entry) => entry.value).slice(0, 3).join(" ");
+  if (pdfFiles.length) return pdfFiles.map((file) => file.name).slice(0, 3).join(" ");
+  return "literature-analysis";
 }
 
 function buildLiteratureUserContext(userContext, fallback) {

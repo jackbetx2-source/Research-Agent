@@ -10,6 +10,7 @@ from datetime import datetime
 from .arxiv_search import ArxivSearchError, extract_core_query, search_arxiv
 from .citations import format_references, normalize_citation_format, year_from_paper
 from .crossref_search import search_crossref
+from .language_policy import contains_cjk, main_language, paper_language
 from .llm import LLMClient, LLMServiceError
 from .openalex_search import search_openalex
 from .pubmed_search import search_pubmed
@@ -225,7 +226,7 @@ class SLRWorkflow:
         return self._select_by_search_plan(deduped, search_plan, max_results=max_results), source_counts, source_errors
 
     async def _build_search_plan(self, topic: str, search_query: str) -> list[dict]:
-        if self._contains_cjk(topic):
+        if main_language(topic, default="en") == "zh":
             english_query = await self._translate_query_to_english(topic, search_query)
             english_query = english_query or search_query
             return [
@@ -250,7 +251,7 @@ class SLRWorkflow:
                 "query": search_query,
                 "target_language": "en",
                 "output_language": "en",
-                "target_ratio": 0.8,
+                "target_ratio": 1.0,
             }
         ]
 
@@ -316,18 +317,11 @@ Keep the query under 8 words. Remove instructions such as review, survey, papers
 
     @staticmethod
     def _paper_language(paper: dict) -> str:
-        text = " ".join(
-            str(paper.get(key) or "")
-            for key in ("title", "abstract", "journal")
-        )
-        if SLRWorkflow._contains_cjk(text):
-            return "zh"
-        ascii_letters = len(re.findall(r"[A-Za-z]", text))
-        return "en" if ascii_letters >= 12 else "other"
+        return paper_language(paper)
 
     @staticmethod
     def _contains_cjk(value: str) -> bool:
-        return bool(re.search(r"[\u3400-\u9fff]", value or ""))
+        return contains_cjk(value)
 
     async def _extract_annotations(self, papers: list[dict]) -> list[dict]:
         batches = [papers[index : index + 5] for index in range(0, len(papers), 5)]
@@ -448,7 +442,7 @@ If the topic is mainly Chinese, all narrative values must be Chinese. Keep paper
         source_mode: str,
     ) -> str:
         today = datetime.now().strftime("%Y-%m-%d")
-        use_chinese = self._contains_cjk(topic)
+        use_chinese = main_language(topic, default="en") == "zh"
         scope_parts = (
             [f"检索词 `{search_query}`", f"来源 {search_source}", "按 DOI / URL / 标题去重"]
             if use_chinese
@@ -610,7 +604,7 @@ If the topic is mainly Chinese, all narrative values must be Chinese. Keep paper
     def _fallback_synthesis(topic: str, annotations: list[dict], papers: list[dict]) -> dict:
         categories = sorted({category for paper in papers for category in paper.get("categories", [])})
         sources = sorted({str(paper.get("source", "")) for paper in papers if paper.get("source")})
-        use_chinese = SLRWorkflow._contains_cjk(topic) or any(
+        use_chinese = main_language(topic, default="en") == "zh" or any(
             paper.get("output_language") == "zh" or SLRWorkflow._contains_cjk(str(paper.get("search_query") or ""))
             for paper in papers
         )
