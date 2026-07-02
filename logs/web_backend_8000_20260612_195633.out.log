@@ -1,0 +1,708 @@
+Research Agent Web is listening on http://0.0.0.0:8000
+[web] 127.0.0.1 - "GET /health HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /health HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /health HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET / HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /styles.css?v=source-filename-1 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /app.js?v=source-filename-1 HTTP/1.1" 200 -
+[web] 127.0.0.1 - code 404, message Not found
+[web] 127.0.0.1 - "GET /favicon.ico HTTP/1.1" 404 -
+[web] uploaded PDF reference debug {"filename": "07_clinically_informed_preprocessing_stroke_segmentation_low_resource_arxiv.pdf", "content_length": 3678520, "content_sha256": "d80a1d5e26095429fabfef6c47d4db64062e279c29b354efa41929a76dddca05", "pdf_page_count": 10, "pdf_extracted_pages": 10, "pdf_extraction_note": "Extracted text from 10/10 pages (first 10 pages scanned).", "metadata_title": "Clinically-Informed Preprocessing Improves Stroke Segmentation in Low-Resource Settings", "metadata_author": "Juampablo E. Heras Rivera; Hitender Oswal; Tianyi Ren; Yutong Pan; William Henry; Caitlin M. Neher; Mehmet Kurt", "inferred_title": "Clinically-Informed Preprocessing Improves Stroke Segmentation in Low-Resource Settings", "document_role": "literature", "pdf_identity_status": "ok", "review_reasons": [], "first_800_chars": "[Page 1] Clinically-Informed Preprocessing Improves Stroke Segmentation in Low-Resource Settings Juampablo E. Heras Rivera1[0000−0002−0205−6329], Hitender Oswal1[0000−0002−4507−5466], Tianyi Ren1[0000−0001−9548−6645], Yutong Pan1, William Henry1, Caitlin M. Neher1[0009−0007−8249−6319], and Mehmet Kurt1[0000−0002−5618−0296] University of Washington, Seattle WA 98105, USA {jehr,hitender,tr1,ypan4,whenry1,neherc,mkurt}@uw.edu Abstract. Stroke is among the top three causes of death worldwide, and accurate identification of ischemic stroke lesion boundaries from imag- ing is critical for diagnosis and treatment. The main imaging modalities used include magnetic resonance imaging (MRI), particularly diffusion weighted imaging (DWI), and computed tomography (CT)-based tech- niques such as non-con", "bibliographic_identity_first_800_chars": "07_clinically_informed_preprocessing_stroke_segmentation_low_resource_arxiv.pdf Clinically-Informed Preprocessing Improves Stroke Segmentation in Low-Resource Settings Juampablo E. Heras Rivera; Hitender Oswal; Tianyi Ren; Yutong Pan; William Henry; Caitlin M. Neher; Mehmet Kurt Clinically-Informed Preprocessing Improves Stroke Segmentation in Low-Resource Settings Juampablo E. Heras Rivera1[0000−0002−0205−6329], Hitender Oswal1[0000−0002−4507−5466], Tianyi Ren1[0000−0001−9548−6645], Yutong Pan1, William Henry1, Caitlin M. Neher1[0009−0007−8249−6319], and Mehmet Kurt1[0000−0002−5618−0296] University of Washington, Seattle WA 98105, USA {jehr,hitender,tr1,ypan4,whenry1,neherc,mkurt}@uw.edu Abstract. Stroke is among the top three causes of death worldwide, and accurate identification of isch"}
+[web] uploaded PDF reference debug {"filename": "08_random_expert_sampling_deep_learning_segmentation_ais_ncct_arxiv.pdf", "content_length": 10412592, "content_sha256": "362695144ca4dbe9caedd76c3d7ffb880cbc156925c5c3866aeb041844fed5e6", "pdf_page_count": 29, "pdf_extracted_pages": 29, "pdf_extraction_note": "Extracted text from 29/29 pages (first 29 pages scanned).", "metadata_title": "", "metadata_author": "", "inferred_title": "Random Expert Sampling for Deep Learning Segmentation of Acute Ischemic Stroke on Non-contrast", "document_role": "literature", "pdf_identity_status": "ok", "review_reasons": [], "first_800_chars": "[Page 1] Random Expert Sampling for Deep Learning Segmentation of Acute Ischemic Stroke on Non-contrast CT Sophie Ostmeier, MD 1, Brian Axelrod, PhD 1, Benjamin Pulli, MD 1, Benjamin F.J. Verhaaren, MD, PhD 2, Abdelkader Mahammedi, MD 1, Yongkai Liu, PhD 1, Christian Federau, MD, MS 3, Greg Zaharchuk, MD, PhD 1, and Jeremy J. Heit, MD, PhD 1,* *corresponding author’s email: jheit@stanford.edu 1Stanford School of Medicine, 453 Quarry Rd, Palo Alto, CA 94304, USA 2KU Leuven, Medical Imaging Research Center, Leuven, Belgium 3AI Medical AG, Zurich, Switzerland Short Title Random Expert Sampling in Deep Learning for Stroke Word Count 3273 words in total arXiv:2309.03930v1 [cs.CV] 7 Sep 2023 [Page 2] Abstract Purpose To automatically identify the presence and location of ischemic brain tissue on", "bibliographic_identity_first_800_chars": "08_random_expert_sampling_deep_learning_segmentation_ais_ncct_arxiv.pdf Random Expert Sampling for Deep Learning Segmentation of Acute Ischemic Stroke on Non-contrast CT Sophie Ostmeier, MD 1, Brian Axelrod, PhD 1, Benjamin Pulli, MD 1, Benjamin F.J. Verhaaren, MD, PhD 2, Abdelkader Mahammedi, MD 1, Yongkai Liu, PhD 1, Christian Federau, MD, MS 3, Greg Zaharchuk, MD, PhD 1, and Jeremy J. Heit, MD, PhD 1,* *corresponding author’s email: jheit@stanford.edu 1Stanford School of Medicine, 453 Quarry Rd, Palo Alto, CA 94304, USA 2KU Leuven, Medical Imaging Research Center, Leuven, Belgium 3AI Medical AG, Zurich, Switzerland Short Title Random Expert Sampling in Deep Learning for Stroke Word Count 3273 words in total arXiv:2309.03930v1 [cs.CV] 7 Sep 2023"}
+[web] uploaded PDF reference debug {"filename": "09_ischemic_stroke_lesion_segmentation_adversarial_learning_ctp_arxiv.pdf", "content_length": 2322132, "content_sha256": "a59981d85b2419350dd73166b1f17ab3c0c4fa5727340266cd2aa8d85d7f7ca6", "pdf_page_count": 8, "pdf_extracted_pages": 8, "pdf_extraction_note": "Extracted text from 8/8 pages (first 8 pages scanned).", "metadata_title": "", "metadata_author": "", "inferred_title": "Ischemic Stroke Lesion Segmentation Using Adversarial Learning", "document_role": "literature", "pdf_identity_status": "ok", "review_reasons": [], "first_800_chars": "[Page 1] Ischemic Stroke Lesion Segmentation Using Adversarial Learning Mobarakol Islam1,2, N Rajiv Vaidyanathan 2,3, V Jeya Maria Jose 2,4, and Hongliang Ren2∗ 1 NUS Graduate School for Integrative Sciences and Engineering (NGS), National University of Singapore, Singapore 2 Dept. of Biomedical Engineering, National University of Singapore, Singapore 3 Dept. of Mechanical Engineering, NIT, Tiruchirappalli, India 4 Dept. of Instrumentation and Control Engineering, NIT, Tiruchirappalli, India ∗ Corresponding Author: ren@nus.edu.sg mobarakol@u.nus.edu, rajiv.vaidyanathan4@gmail.com, jeyamariajose7@gmail.com, ren@nus.edu.sg Abstract. Ischemic stroke occurs through a blockage of clogged blood vessels supplying blood to the brain. Segmentation of the stroke lesion is vital to improve diagnosis,", "bibliographic_identity_first_800_chars": "09_ischemic_stroke_lesion_segmentation_adversarial_learning_ctp_arxiv.pdf Ischemic Stroke Lesion Segmentation Using Adversarial Learning Mobarakol Islam1,2, N Rajiv Vaidyanathan 2,3, V Jeya Maria Jose 2,4, and Hongliang Ren2∗ 1 NUS Graduate School for Integrative Sciences and Engineering (NGS), National University of Singapore, Singapore 2 Dept. of Biomedical Engineering, National University of Singapore, Singapore 3 Dept. of Mechanical Engineering, NIT, Tiruchirappalli, India 4 Dept. of Instrumentation and Control Engineering, NIT, Tiruchirappalli, India ∗ Corresponding Author: ren@nus.edu.sg mobarakol@u.nus.edu, rajiv.vaidyanathan4@gmail.com, jeyamariajose7@gmail.com, ren@nus.edu.sg Abstract. Ischemic stroke occurs through a blockage of clogged blood vessels supplying blood to the brain."}
+[web] uploaded PDF reference debug {"filename": "10_clinically_aligned_ischemic_stroke_segmentation_aspects_ncct_arxiv.pdf", "content_length": 509256, "content_sha256": "b7b45136284ed821bd03ac1e35dbfdf11fb2c5484f918a4301380f6dd1d89ac7", "pdf_page_count": 10, "pdf_extracted_pages": 10, "pdf_extraction_note": "Extracted text from 10/10 pages (first 10 pages scanned).", "metadata_title": "Clinically-aligned ischemic stroke segmentation and ASPECTS scoring on NCCT imaging using a slice-gated loss on foundation representations", "metadata_author": "Hiba Azeem; Behraj Khan; Tahir Qasim Syed", "inferred_title": "Clinically-aligned ischemic stroke segmentation and ASPECTS scoring on NCCT imaging using a slice-gated loss on foundation representations", "document_role": "literature", "pdf_identity_status": "ok", "review_reasons": [], "first_800_chars": "[Page 1] Clinically-aligned ischemic stroke segmentation and ASPECTS scoring on NCCT imaging using a slice-gated loss on foundation representations Hiba Azeem, Behraj Khan , Tahir Qasim Syed Institute of Business Administration Karachi tahirqsyed@gmail.com Abstract.Rapid infarct assessment on non-contrast CT (NCCT) is es- sential for acute ischemic stroke management. Most deep learning meth- ods perform pixel-wise segmentation without modeling the structured anatomical reasoning underlying ASPECTS scoring, where basal ganglia (BG) and supraganglionic (SG) levels are clinically interpreted in a cou- pled manner. We propose a clinically aligned framework that combines a frozen DINOv3 backbone with a lightweight decoder and introduce a Territory-Aware Gated Loss (TAGL) to enforce BG–SG consis", "bibliographic_identity_first_800_chars": "10_clinically_aligned_ischemic_stroke_segmentation_aspects_ncct_arxiv.pdf Clinically-aligned ischemic stroke segmentation and ASPECTS scoring on NCCT imaging using a slice-gated loss on foundation representations Hiba Azeem; Behraj Khan; Tahir Qasim Syed Clinically-aligned ischemic stroke segmentation and ASPECTS scoring on NCCT imaging using a slice-gated loss on foundation representations Hiba Azeem, Behraj Khan , Tahir Qasim Syed Institute of Business Administration Karachi tahirqsyed@gmail.com Abstract.Rapid infarct assessment on non-contrast CT (NCCT) is es- sential for acute ischemic stroke management. Most deep learning meth- ods perform pixel-wise segmentation without modeling the structured anatomical reasoning underlying ASPECTS scoring, where basal ganglia (BG) and supraganglion"}
+[web] 127.0.0.1 - "POST /api/literature-analysis/pdf HTTP/1.1" 202 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/ebd7e254cd7d4f4e946f17e0fd0c0ae8 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/ebd7e254cd7d4f4e946f17e0fd0c0ae8 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/ebd7e254cd7d4f4e946f17e0fd0c0ae8 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/ebd7e254cd7d4f4e946f17e0fd0c0ae8 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/ebd7e254cd7d4f4e946f17e0fd0c0ae8 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/ebd7e254cd7d4f4e946f17e0fd0c0ae8 HTTP/1.1" 200 -
+[literature] 1/3 Assigning literature to four analysts...
+[web] 127.0.0.1 - "GET /api/literature-analysis/ebd7e254cd7d4f4e946f17e0fd0c0ae8 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/ebd7e254cd7d4f4e946f17e0fd0c0ae8 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/ebd7e254cd7d4f4e946f17e0fd0c0ae8 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/ebd7e254cd7d4f4e946f17e0fd0c0ae8 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/ebd7e254cd7d4f4e946f17e0fd0c0ae8 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET / HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /styles.css?v=source-filename-1 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /app.js?v=source-filename-1 HTTP/1.1" 200 -
+[literature] 2/3 Running four literature analysts in parallel...
+[web] uploaded PDF reference debug {"filename": "07_clinically_informed_preprocessing_stroke_segmentation_low_resource_arxiv.pdf", "content_length": 3678520, "content_sha256": "d80a1d5e26095429fabfef6c47d4db64062e279c29b354efa41929a76dddca05", "pdf_page_count": 10, "pdf_extracted_pages": 10, "pdf_extraction_note": "Extracted text from 10/10 pages (first 10 pages scanned).", "metadata_title": "Clinically-Informed Preprocessing Improves Stroke Segmentation in Low-Resource Settings", "metadata_author": "Juampablo E. Heras Rivera; Hitender Oswal; Tianyi Ren; Yutong Pan; William Henry; Caitlin M. Neher; Mehmet Kurt", "inferred_title": "Clinically-Informed Preprocessing Improves Stroke Segmentation in Low-Resource Settings", "document_role": "literature", "pdf_identity_status": "ok", "review_reasons": [], "first_800_chars": "[Page 1] Clinically-Informed Preprocessing Improves Stroke Segmentation in Low-Resource Settings Juampablo E. Heras Rivera1[0000−0002−0205−6329], Hitender Oswal1[0000−0002−4507−5466], Tianyi Ren1[0000−0001−9548−6645], Yutong Pan1, William Henry1, Caitlin M. Neher1[0009−0007−8249−6319], and Mehmet Kurt1[0000−0002−5618−0296] University of Washington, Seattle WA 98105, USA {jehr,hitender,tr1,ypan4,whenry1,neherc,mkurt}@uw.edu Abstract. Stroke is among the top three causes of death worldwide, and accurate identification of ischemic stroke lesion boundaries from imag- ing is critical for diagnosis and treatment. The main imaging modalities used include magnetic resonance imaging (MRI), particularly diffusion weighted imaging (DWI), and computed tomography (CT)-based tech- niques such as non-con", "bibliographic_identity_first_800_chars": "07_clinically_informed_preprocessing_stroke_segmentation_low_resource_arxiv.pdf Clinically-Informed Preprocessing Improves Stroke Segmentation in Low-Resource Settings Juampablo E. Heras Rivera; Hitender Oswal; Tianyi Ren; Yutong Pan; William Henry; Caitlin M. Neher; Mehmet Kurt Clinically-Informed Preprocessing Improves Stroke Segmentation in Low-Resource Settings Juampablo E. Heras Rivera1[0000−0002−0205−6329], Hitender Oswal1[0000−0002−4507−5466], Tianyi Ren1[0000−0001−9548−6645], Yutong Pan1, William Henry1, Caitlin M. Neher1[0009−0007−8249−6319], and Mehmet Kurt1[0000−0002−5618−0296] University of Washington, Seattle WA 98105, USA {jehr,hitender,tr1,ypan4,whenry1,neherc,mkurt}@uw.edu Abstract. Stroke is among the top three causes of death worldwide, and accurate identification of isch"}
+[web] uploaded PDF reference debug {"filename": "08_random_expert_sampling_deep_learning_segmentation_ais_ncct_arxiv.pdf", "content_length": 10412592, "content_sha256": "362695144ca4dbe9caedd76c3d7ffb880cbc156925c5c3866aeb041844fed5e6", "pdf_page_count": 29, "pdf_extracted_pages": 29, "pdf_extraction_note": "Extracted text from 29/29 pages (first 29 pages scanned).", "metadata_title": "", "metadata_author": "", "inferred_title": "Random Expert Sampling for Deep Learning Segmentation of Acute Ischemic Stroke on Non-contrast", "document_role": "literature", "pdf_identity_status": "ok", "review_reasons": [], "first_800_chars": "[Page 1] Random Expert Sampling for Deep Learning Segmentation of Acute Ischemic Stroke on Non-contrast CT Sophie Ostmeier, MD 1, Brian Axelrod, PhD 1, Benjamin Pulli, MD 1, Benjamin F.J. Verhaaren, MD, PhD 2, Abdelkader Mahammedi, MD 1, Yongkai Liu, PhD 1, Christian Federau, MD, MS 3, Greg Zaharchuk, MD, PhD 1, and Jeremy J. Heit, MD, PhD 1,* *corresponding author’s email: jheit@stanford.edu 1Stanford School of Medicine, 453 Quarry Rd, Palo Alto, CA 94304, USA 2KU Leuven, Medical Imaging Research Center, Leuven, Belgium 3AI Medical AG, Zurich, Switzerland Short Title Random Expert Sampling in Deep Learning for Stroke Word Count 3273 words in total arXiv:2309.03930v1 [cs.CV] 7 Sep 2023 [Page 2] Abstract Purpose To automatically identify the presence and location of ischemic brain tissue on", "bibliographic_identity_first_800_chars": "08_random_expert_sampling_deep_learning_segmentation_ais_ncct_arxiv.pdf Random Expert Sampling for Deep Learning Segmentation of Acute Ischemic Stroke on Non-contrast CT Sophie Ostmeier, MD 1, Brian Axelrod, PhD 1, Benjamin Pulli, MD 1, Benjamin F.J. Verhaaren, MD, PhD 2, Abdelkader Mahammedi, MD 1, Yongkai Liu, PhD 1, Christian Federau, MD, MS 3, Greg Zaharchuk, MD, PhD 1, and Jeremy J. Heit, MD, PhD 1,* *corresponding author’s email: jheit@stanford.edu 1Stanford School of Medicine, 453 Quarry Rd, Palo Alto, CA 94304, USA 2KU Leuven, Medical Imaging Research Center, Leuven, Belgium 3AI Medical AG, Zurich, Switzerland Short Title Random Expert Sampling in Deep Learning for Stroke Word Count 3273 words in total arXiv:2309.03930v1 [cs.CV] 7 Sep 2023"}
+[web] uploaded PDF reference debug {"filename": "09_ischemic_stroke_lesion_segmentation_adversarial_learning_ctp_arxiv.pdf", "content_length": 2322132, "content_sha256": "a59981d85b2419350dd73166b1f17ab3c0c4fa5727340266cd2aa8d85d7f7ca6", "pdf_page_count": 8, "pdf_extracted_pages": 8, "pdf_extraction_note": "Extracted text from 8/8 pages (first 8 pages scanned).", "metadata_title": "", "metadata_author": "", "inferred_title": "Ischemic Stroke Lesion Segmentation Using Adversarial Learning", "document_role": "literature", "pdf_identity_status": "ok", "review_reasons": [], "first_800_chars": "[Page 1] Ischemic Stroke Lesion Segmentation Using Adversarial Learning Mobarakol Islam1,2, N Rajiv Vaidyanathan 2,3, V Jeya Maria Jose 2,4, and Hongliang Ren2∗ 1 NUS Graduate School for Integrative Sciences and Engineering (NGS), National University of Singapore, Singapore 2 Dept. of Biomedical Engineering, National University of Singapore, Singapore 3 Dept. of Mechanical Engineering, NIT, Tiruchirappalli, India 4 Dept. of Instrumentation and Control Engineering, NIT, Tiruchirappalli, India ∗ Corresponding Author: ren@nus.edu.sg mobarakol@u.nus.edu, rajiv.vaidyanathan4@gmail.com, jeyamariajose7@gmail.com, ren@nus.edu.sg Abstract. Ischemic stroke occurs through a blockage of clogged blood vessels supplying blood to the brain. Segmentation of the stroke lesion is vital to improve diagnosis,", "bibliographic_identity_first_800_chars": "09_ischemic_stroke_lesion_segmentation_adversarial_learning_ctp_arxiv.pdf Ischemic Stroke Lesion Segmentation Using Adversarial Learning Mobarakol Islam1,2, N Rajiv Vaidyanathan 2,3, V Jeya Maria Jose 2,4, and Hongliang Ren2∗ 1 NUS Graduate School for Integrative Sciences and Engineering (NGS), National University of Singapore, Singapore 2 Dept. of Biomedical Engineering, National University of Singapore, Singapore 3 Dept. of Mechanical Engineering, NIT, Tiruchirappalli, India 4 Dept. of Instrumentation and Control Engineering, NIT, Tiruchirappalli, India ∗ Corresponding Author: ren@nus.edu.sg mobarakol@u.nus.edu, rajiv.vaidyanathan4@gmail.com, jeyamariajose7@gmail.com, ren@nus.edu.sg Abstract. Ischemic stroke occurs through a blockage of clogged blood vessels supplying blood to the brain."}
+[web] uploaded PDF reference debug {"filename": "10_clinically_aligned_ischemic_stroke_segmentation_aspects_ncct_arxiv.pdf", "content_length": 509256, "content_sha256": "b7b45136284ed821bd03ac1e35dbfdf11fb2c5484f918a4301380f6dd1d89ac7", "pdf_page_count": 10, "pdf_extracted_pages": 10, "pdf_extraction_note": "Extracted text from 10/10 pages (first 10 pages scanned).", "metadata_title": "Clinically-aligned ischemic stroke segmentation and ASPECTS scoring on NCCT imaging using a slice-gated loss on foundation representations", "metadata_author": "Hiba Azeem; Behraj Khan; Tahir Qasim Syed", "inferred_title": "Clinically-aligned ischemic stroke segmentation and ASPECTS scoring on NCCT imaging using a slice-gated loss on foundation representations", "document_role": "literature", "pdf_identity_status": "ok", "review_reasons": [], "first_800_chars": "[Page 1] Clinically-aligned ischemic stroke segmentation and ASPECTS scoring on NCCT imaging using a slice-gated loss on foundation representations Hiba Azeem, Behraj Khan , Tahir Qasim Syed Institute of Business Administration Karachi tahirqsyed@gmail.com Abstract.Rapid infarct assessment on non-contrast CT (NCCT) is es- sential for acute ischemic stroke management. Most deep learning meth- ods perform pixel-wise segmentation without modeling the structured anatomical reasoning underlying ASPECTS scoring, where basal ganglia (BG) and supraganglionic (SG) levels are clinically interpreted in a cou- pled manner. We propose a clinically aligned framework that combines a frozen DINOv3 backbone with a lightweight decoder and introduce a Territory-Aware Gated Loss (TAGL) to enforce BG–SG consis", "bibliographic_identity_first_800_chars": "10_clinically_aligned_ischemic_stroke_segmentation_aspects_ncct_arxiv.pdf Clinically-aligned ischemic stroke segmentation and ASPECTS scoring on NCCT imaging using a slice-gated loss on foundation representations Hiba Azeem; Behraj Khan; Tahir Qasim Syed Clinically-aligned ischemic stroke segmentation and ASPECTS scoring on NCCT imaging using a slice-gated loss on foundation representations Hiba Azeem, Behraj Khan , Tahir Qasim Syed Institute of Business Administration Karachi tahirqsyed@gmail.com Abstract.Rapid infarct assessment on non-contrast CT (NCCT) is es- sential for acute ischemic stroke management. Most deep learning meth- ods perform pixel-wise segmentation without modeling the structured anatomical reasoning underlying ASPECTS scoring, where basal ganglia (BG) and supraganglion"}
+[web] 127.0.0.1 - "POST /api/literature-analysis/pdf HTTP/1.1" 202 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[literature] 1/3 Assigning literature to four analysts...
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[literature] 2/3 Running four literature analysts in parallel...
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[literature] Evidence Analyst batch failed; retrying one paper at a time. LLMServiceError: The upstream model output hit the token limit and was truncated. Try fast mode, narrow the topic, or increase max_tokens.
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[literature] Critical Reviewer batch failed; retrying one paper at a time. LLMServiceError: The upstream model output hit the token limit and was truncated. Try fast mode, narrow the topic, or increase max_tokens.
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[literature] 3/3 Integrating literature analysis rows and cross-paper summary...
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[literature] Integration failed; retrying summary-only synthesis. LLMServiceError: The upstream model output hit the token limit and was truncated. Try fast mode, narrow the topic, or increase max_tokens.
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[literature] Chinese translation post-processing failed; keeping original output. LLMServiceError: The upstream model output hit the token limit and was truncated. Try fast mode, narrow the topic, or increase max_tokens.
+[literature] Done.
+[web] 127.0.0.1 - "GET /api/literature-analysis/dea70d98e3034ad7ab05a21b3ad42c3d HTTP/1.1" 200 -
+[literature] Evidence Analyst batch failed; retrying one paper at a time. LLMServiceError: Upstream model service timed out or is temporarily unavailable. Please try again later.
+[literature] Contribution Analyst batch failed; retrying one paper at a time. LLMServiceError: Upstream model service timed out or is temporarily unavailable. Please try again later.
+[literature] Methodology Analyst batch failed; retrying one paper at a time. LLMServiceError: Upstream model service timed out or is temporarily unavailable. Please try again later.
+[literature] Critical Reviewer batch failed; retrying one paper at a time. LLMServiceError: Upstream model service timed out or is temporarily unavailable. Please try again later.
+[web] skipped PDF page 1 during text extraction: PdfReadError: More than one /FontFile found in {'/Ascent': 962, '/CapHeight': 718, '/CharSet': '/A/AE/Aacute/Acircumflex/Adieresis/Agrave/Aring/Atilde/B/C/Ccedilla/D/E/Eacute/Ecircumflex/Edieresis/Egrave/Eth/F/G/H/I/Iacute/Icircumflex/Idieresis/Igrave/J/K/L/Lslash/M/N/Ntilde/O/OE/Oacute/Ocircumflex/Odieresis/Ograve/Oslash/Otilde/P/Q/R/S/Scaron/T/Thorn/U/Uacute/Ucircumflex/Udieresis/Ugrave/V/W/X/Y/Yacute/Ydieresis/Z/Zcaron/a/aacute/acircumflex/acute/adieresis/ae/agrave/ampersand/aring/asciicircum/asciitilde/asterisk/at/atilde/b/backslash/bar/braceleft/braceright/bracketleft/bracketright/breve/brokenbar/bullet/c/caron/ccedilla/cedilla/cent/circumflex/colon/comma/copyright/currency/d/dagger/daggerdbl/degree/dieresis/divide/dollar/dotaccent/dotlessi/e/eacute/ecircumflex/edieresis/egrave/eight/ellipsis/emdash/endash/equal/eth/exclam/exclamdown/f/fi/five/fl/florin/four/fraction/g/germandbls/grave/greater/guillemotleft/guillemotright/guilsinglleft/guilsinglright/h/hungarumlaut/hyphen/i/iacute/icircumflex/idieresis/igrave/j/k/l/less/logicalnot/lslash/m/macron/minus/mu/multiply/n/nine/ntilde/numbersign/o/oacute/ocircumflex/odieresis/oe/ogonek/ograve/one/onehalf/onequarter/onesuperior/ordfeminine/ordmasculine/oslash/otilde/p/paragraph/parenleft/parenright/percent/period/periodcentered/perthousand/plus/plusminus/q/question/questiondown/quotedbl/quotedblbase/quotedblleft/quotedblright/quoteleft/quoteright/quotesinglbase/quotesingle/r/registered/ring/s/scaron/section/semicolon/seven/six/slash/space/sterling/t/thorn/three/threequarters/threesuperior/tilde/trademark/two/twosuperior/u/uacute/ucircumflex/udieresis/ugrave/underscore/v/w/x/y/yacute/ydieresis/yen/z/zcaron/zero', '/Descent': -228, '/Flags': 262176, '/FontBBox': [-170, -228, 1003, 962], '/FontFamily': 'Helvetica', '/FontFile': IndirectObject(64, 0, 2585190514000), '/FontFile3': IndirectObject(65, 0, 2585190514000), '/FontName': '/SUEMIF+HxlmjsHelvetica-Bold', '/ItalicAngle': 0, '/Leading': 1200, '/MaxWidth': 1000, '/MissingWidth': 278, '/StemH': 118, '/StemV': 140, '/Type': '/FontDescriptor', '/XHeight': 532}
+[web] skipped PDF page 2 during text extraction: PdfReadError: More than one /FontFile found in {'/Ascent': 962, '/CapHeight': 718, '/CharSet': '/A/AE/Aacute/Acircumflex/Adieresis/Agrave/Aring/Atilde/B/C/Ccedilla/D/E/Eacute/Ecircumflex/Edieresis/Egrave/Eth/F/G/H/I/Iacute/Icircumflex/Idieresis/Igrave/J/K/L/Lslash/M/N/Ntilde/O/OE/Oacute/Ocircumflex/Odieresis/Ograve/Oslash/Otilde/P/Q/R/S/Scaron/T/Thorn/U/Uacute/Ucircumflex/Udieresis/Ugrave/V/W/X/Y/Yacute/Ydieresis/Z/Zcaron/a/aacute/acircumflex/acute/adieresis/ae/agrave/ampersand/aring/asciicircum/asciitilde/asterisk/at/atilde/b/backslash/bar/braceleft/braceright/bracketleft/bracketright/breve/brokenbar/bullet/c/caron/ccedilla/cedilla/cent/circumflex/colon/comma/copyright/currency/d/dagger/daggerdbl/degree/dieresis/divide/dollar/dotaccent/dotlessi/e/eacute/ecircumflex/edieresis/egrave/eight/ellipsis/emdash/endash/equal/eth/exclam/exclamdown/f/fi/five/fl/florin/four/fraction/g/germandbls/grave/greater/guillemotleft/guillemotright/guilsinglleft/guilsinglright/h/hungarumlaut/hyphen/i/iacute/icircumflex/idieresis/igrave/j/k/l/less/logicalnot/lslash/m/macron/minus/mu/multiply/n/nine/ntilde/numbersign/o/oacute/ocircumflex/odieresis/oe/ogonek/ograve/one/onehalf/onequarter/onesuperior/ordfeminine/ordmasculine/oslash/otilde/p/paragraph/parenleft/parenright/percent/period/periodcentered/perthousand/plus/plusminus/q/question/questiondown/quotedbl/quotedblbase/quotedblleft/quotedblright/quoteleft/quoteright/quotesinglbase/quotesingle/r/registered/ring/s/scaron/section/semicolon/seven/six/slash/space/sterling/t/thorn/three/threequarters/threesuperior/tilde/trademark/two/twosuperior/u/uacute/ucircumflex/udieresis/ugrave/underscore/v/w/x/y/yacute/ydieresis/yen/z/zcaron/zero', '/Descent': -228, '/Flags': 262176, '/FontBBox': [-170, -228, 1003, 962], '/FontFamily': 'Helvetica', '/FontFile': IndirectObject(64, 0, 2585190514000), '/FontFile3': IndirectObject(65, 0, 2585190514000), '/FontName': '/SUEMIF+HxlmjsHelvetica-Bold', '/ItalicAngle': 0, '/Leading': 1200, '/MaxWidth': 1000, '/MissingWidth': 278, '/StemH': 118, '/StemV': 140, '/Type': '/FontDescriptor', '/XHeight': 532}
+[web] skipped PDF page 3 during text extraction: PdfReadError: More than one /FontFile found in {'/Ascent': 962, '/CapHeight': 718, '/CharSet': '/A/AE/Aacute/Acircumflex/Adieresis/Agrave/Aring/Atilde/B/C/Ccedilla/D/E/Eacute/Ecircumflex/Edieresis/Egrave/Eth/F/G/H/I/Iacute/Icircumflex/Idieresis/Igrave/J/K/L/Lslash/M/N/Ntilde/O/OE/Oacute/Ocircumflex/Odieresis/Ograve/Oslash/Otilde/P/Q/R/S/Scaron/T/Thorn/U/Uacute/Ucircumflex/Udieresis/Ugrave/V/W/X/Y/Yacute/Ydieresis/Z/Zcaron/a/aacute/acircumflex/acute/adieresis/ae/agrave/ampersand/aring/asciicircum/asciitilde/asterisk/at/atilde/b/backslash/bar/braceleft/braceright/bracketleft/bracketright/breve/brokenbar/bullet/c/caron/ccedilla/cedilla/cent/circumflex/colon/comma/copyright/currency/d/dagger/daggerdbl/degree/dieresis/divide/dollar/dotaccent/dotlessi/e/eacute/ecircumflex/edieresis/egrave/eight/ellipsis/emdash/endash/equal/eth/exclam/exclamdown/f/fi/five/fl/florin/four/fraction/g/germandbls/grave/greater/guillemotleft/guillemotright/guilsinglleft/guilsinglright/h/hungarumlaut/hyphen/i/iacute/icircumflex/idieresis/igrave/j/k/l/less/logicalnot/lslash/m/macron/minus/mu/multiply/n/nine/ntilde/numbersign/o/oacute/ocircumflex/odieresis/oe/ogonek/ograve/one/onehalf/onequarter/onesuperior/ordfeminine/ordmasculine/oslash/otilde/p/paragraph/parenleft/parenright/percent/period/periodcentered/perthousand/plus/plusminus/q/question/questiondown/quotedbl/quotedblbase/quotedblleft/quotedblright/quoteleft/quoteright/quotesinglbase/quotesingle/r/registered/ring/s/scaron/section/semicolon/seven/six/slash/space/sterling/t/thorn/three/threequarters/threesuperior/tilde/trademark/two/twosuperior/u/uacute/ucircumflex/udieresis/ugrave/underscore/v/w/x/y/yacute/ydieresis/yen/z/zcaron/zero', '/Descent': -228, '/Flags': 262176, '/FontBBox': [-170, -228, 1003, 962], '/FontFamily': 'Helvetica', '/FontFile': IndirectObject(9, 0, 2585190514000), '/FontFile3': IndirectObject(10, 0, 2585190514000), '/FontName': '/SUEMIF+YkyxlmHelvetica-Bold', '/ItalicAngle': 0, '/Leading': 1200, '/MaxWidth': 1000, '/MissingWidth': 278, '/StemH': 118, '/StemV': 140, '/Type': '/FontDescriptor', '/XHeight': 532}
+[web] skipped PDF page 4 during text extraction: PdfReadError: More than one /FontFile found in {'/Ascent': 962, '/CapHeight': 718, '/CharSet': '/A/AE/Aacute/Acircumflex/Adieresis/Agrave/Aring/Atilde/B/C/Ccedilla/D/E/Eacute/Ecircumflex/Edieresis/Egrave/Eth/F/G/H/I/Iacute/Icircumflex/Idieresis/Igrave/J/K/L/Lslash/M/N/Ntilde/O/OE/Oacute/Ocircumflex/Odieresis/Ograve/Oslash/Otilde/P/Q/R/S/Scaron/T/Thorn/U/Uacute/Ucircumflex/Udieresis/Ugrave/V/W/X/Y/Yacute/Ydieresis/Z/Zcaron/a/aacute/acircumflex/acute/adieresis/ae/agrave/ampersand/aring/asciicircum/asciitilde/asterisk/at/atilde/b/backslash/bar/braceleft/braceright/bracketleft/bracketright/breve/brokenbar/bullet/c/caron/ccedilla/cedilla/cent/circumflex/colon/comma/copyright/currency/d/dagger/daggerdbl/degree/dieresis/divide/dollar/dotaccent/dotlessi/e/eacute/ecircumflex/edieresis/egrave/eight/ellipsis/emdash/endash/equal/eth/exclam/exclamdown/f/fi/five/fl/florin/four/fraction/g/germandbls/grave/greater/guillemotleft/guillemotright/guilsinglleft/guilsinglright/h/hungarumlaut/hyphen/i/iacute/icircumflex/idieresis/igrave/j/k/l/less/logicalnot/lslash/m/macron/minus/mu/multiply/n/nine/ntilde/numbersign/o/oacute/ocircumflex/odieresis/oe/ogonek/ograve/one/onehalf/onequarter/onesuperior/ordfeminine/ordmasculine/oslash/otilde/p/paragraph/parenleft/parenright/percent/period/periodcentered/perthousand/plus/plusminus/q/question/questiondown/quotedbl/quotedblbase/quotedblleft/quotedblright/quoteleft/quoteright/quotesinglbase/quotesingle/r/registered/ring/s/scaron/section/semicolon/seven/six/slash/space/sterling/t/thorn/three/threequarters/threesuperior/tilde/trademark/two/twosuperior/u/uacute/ucircumflex/udieresis/ugrave/underscore/v/w/x/y/yacute/ydieresis/yen/z/zcaron/zero', '/Descent': -228, '/Flags': 262176, '/FontBBox': [-170, -228, 1003, 962], '/FontFamily': 'Helvetica', '/FontFile': IndirectObject(64, 0, 2585190514000), '/FontFile3': IndirectObject(65, 0, 2585190514000), '/FontName': '/SUEMIF+HxlmjsHelvetica-Bold', '/ItalicAngle': 0, '/Leading': 1200, '/MaxWidth': 1000, '/MissingWidth': 278, '/StemH': 118, '/StemV': 140, '/Type': '/FontDescriptor', '/XHeight': 532}
+[web] used PyMuPDF fallback PDF extraction; extracted 4/4 pages.
+[web] uploaded PDF reference debug {"filename": "323533a0.pdf", "content_length": 1376827, "content_sha256": "1f7b0339d34bb6dac27d6433a7b271e161251c641d1ca67242284f0a5d6ac19e", "pdf_page_count": 4, "pdf_extracted_pages": 4, "pdf_extraction_note": "Extracted text from 4/4 pages (first 4 pages scanned). Used PyMuPDF fallback extraction. Skipped 4 page(s) because pypdf could not extract text from them.", "metadata_title": "6088 - V323.indd", "metadata_author": "", "inferred_title": "Learning representations by back-propagating errors", "document_role": "literature", "pdf_identity_status": "ok", "review_reasons": [], "first_800_chars": "[Page 1] © Nature Publishing Group 1986 _NA~TU_R_E_V_O_L_. 3_2_3 _9_0_CT_O_B_E_R_1_98_6 _________ LETTERSTONATURE ------------------=533 delineating the absolute indigeneity of amino acids in fossils. As AMS techniques are refined to handle smaller samples, it may also become possible to date individual amino acid enan- tiomers by the 14C method. If one enantiomer is entirely derived from the other by racemization during diagenesis, the individual D- and L-enantiomers for a given amino acid should have identical 14C ages. Older, more poorly preserved fossils may not always prove amenable to the determination of amino acid indigeneity by the stable isotope method, as the prospects for complete replace- ment of indigenous amino acids with non-indigenous amino acids increases with time. As no", "bibliographic_identity_first_800_chars": "323533a0.pdf 6088 - V323.indd © Nature Publishing Group 1986 _NA~TU_R_E_V_O_L_. 3_2_3 _9_0_CT_O_B_E_R_1_98_6 _________ LETTERSTONATURE ------------------=533 delineating the absolute indigeneity of amino acids in fossils. As AMS techniques are refined to handle smaller samples, it may also become possible to date individual amino acid enan- tiomers by the 14C method. If one enantiomer is entirely derived from the other by racemization during diagenesis, the individual D- and L-enantiomers for a given amino acid should have identical 14C ages. Older, more poorly preserved fossils may not always prove amenable to the determination of amino acid indigeneity by the stable isotope method, as the prospects for complete replace- ment of indigenous amino acids with non-indigenous amino acids incre"}
+[web] uploaded PDF reference debug {"filename": "BF00994018.pdf", "content_length": 1502380, "content_sha256": "4aed6fc3d300ce7552b341e3e01f3d795aa437de1045c022e6ee0b4309492531", "pdf_page_count": 25, "pdf_extracted_pages": 25, "pdf_extraction_note": "Extracted text from 25/25 pages (first 25 pages scanned).", "metadata_title": "Support-vector networks", "metadata_author": "", "inferred_title": "Support-vector networks", "document_role": "literature", "pdf_identity_status": "ok", "review_reasons": [], "first_800_chars": "[Page 1] Machine Leaming, 20, 273-297 (1995) ~) 1995 Kluwer Academic Publishers, Boston. Manufactured in The Netherlands. Support-Vector Networks CORINNA CORTES VLADIMIR VAPNIK AT&T Bell Labs., Hohndel, NJ 07733, USA corinna@ neurai.att.com vlad@neurai.att.com Editor: Lorenza Saitta Abstract. The support-vector network is a new leaming machine for two-group classification problems. The machine conceptually implements the following idea: input vectors are non-linearly mapped to a very high- dimension feature space. In this feature space a linear decision surface is constructed. Special properties of the decision surface ensures high generalization ability of the learning machine. The idea behind the support-vector network was previously implemented for the restricted case where the training", "bibliographic_identity_first_800_chars": "BF00994018.pdf Support-vector networks Machine Leaming, 20, 273-297 (1995) ~) 1995 Kluwer Academic Publishers, Boston. Manufactured in The Netherlands. Support-Vector Networks CORINNA CORTES VLADIMIR VAPNIK AT&T Bell Labs., Hohndel, NJ 07733, USA corinna@ neurai.att.com vlad@neurai.att.com Editor: Lorenza Saitta Abstract. The support-vector network is a new leaming machine for two-group classification problems. The machine conceptually implements the following idea: input vectors are non-linearly mapped to a very high- dimension feature space. In this feature space a linear decision surface is constructed. Special properties of the decision surface ensures high generalization ability of the learning machine. The idea behind the support-vector network was previously implemented for the rest"}
+[web] uploaded PDF reference debug {"filename": "A_1010933404324.pdf", "content_length": 230664, "content_sha256": "3ad0f6182280e8c0f763527be85d41bce08f6e4d1de3f8c674098f0de31138ce", "pdf_page_count": 28, "pdf_extracted_pages": 28, "pdf_extraction_note": "Extracted text from 28/28 pages (first 28 pages scanned).", "metadata_title": "Random Forests", "metadata_author": "", "inferred_title": "Random Forests", "document_role": "literature", "pdf_identity_status": "ok", "review_reasons": [], "first_800_chars": "[Page 1] Machine Learning, 45, 5–32, 2001 c⃝ 2001 Kluwer Academic Publishers. Manufactured in The Netherlands. Random Forests LEO BREIMAN Statistics Department, University of California, Berkeley, CA 94720 Editor: Robert E. Schapire Abstract. Random forests are a combination of tree predictors such that each tree depends on the values of a random vector sampled independently and with the same distribution for all trees in the forest. The generalization error for forests converges a.s. to a limit as the number of trees in the forest becomes large. The generalization error of a forest of tree classifiers depends on the strength of the individual trees in the forest and the corre- lation between them. Using a random selection of features to split each node yields error rates that compare favo", "bibliographic_identity_first_800_chars": "A_1010933404324.pdf Random Forests Machine Learning, 45, 5–32, 2001 c⃝ 2001 Kluwer Academic Publishers. Manufactured in The Netherlands. Random Forests LEO BREIMAN Statistics Department, University of California, Berkeley, CA 94720 Editor: Robert E. Schapire Abstract. Random forests are a combination of tree predictors such that each tree depends on the values of a random vector sampled independently and with the same distribution for all trees in the forest. The generalization error for forests converges a.s. to a limit as the number of trees in the forest becomes large. The generalization error of a forest of tree classifiers depends on the strength of the individual trees in the forest and the corre- lation between them. Using a random selection of features to split each node yields err"}
+[web] 127.0.0.1 - "POST /api/literature-analysis/pdf HTTP/1.1" 202 -
+[literature] 1/3 Assigning literature to four analysts...
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[literature] 2/3 Running four literature analysts in parallel...
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[literature] Methodology Analyst batch failed; retrying one paper at a time. LLMServiceError: The upstream model output hit the token limit and was truncated. Try fast mode, narrow the topic, or increase max_tokens.
+[literature] Evidence Analyst batch failed; retrying one paper at a time. LLMServiceError: The upstream model output hit the token limit and was truncated. Try fast mode, narrow the topic, or increase max_tokens.
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[literature] Critical Reviewer batch failed; retrying one paper at a time. LLMServiceError: The upstream model output hit the token limit and was truncated. Try fast mode, narrow the topic, or increase max_tokens.
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[literature] Contribution Analyst batch failed; retrying one paper at a time. LLMServiceError: The upstream model output hit the token limit and was truncated. Try fast mode, narrow the topic, or increase max_tokens.
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[literature] 3/3 Integrating literature analysis rows and cross-paper summary...
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[literature] Integration failed; retrying summary-only synthesis. LLMServiceError: The upstream model output hit the token limit and was truncated. Try fast mode, narrow the topic, or increase max_tokens.
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[literature] Chinese translation post-processing failed; keeping original output. LLMServiceError: The upstream model output hit the token limit and was truncated. Try fast mode, narrow the topic, or increase max_tokens.
+[literature] Done.
+[web] 127.0.0.1 - "GET /api/literature-analysis/fa41e3b0ae394332955be3edc648a48c HTTP/1.1" 200 -
+[literature] Methodology Analyst single-paper retry failed; using fallback for Random Expert Sampling for Deep Learning Segmentation of Acute Ischemic Stroke on Non-contrast CT. LLMServiceError: Upstream model service timed out or is temporarily unavailable. Please try again later.
+[literature] 3/3 Integrating literature analysis rows and cross-paper summary...
+[web] uploaded PDF reference debug {"filename": "s40820-023-01126-1.pdf", "content_length": 5081536, "content_sha256": "eab95f5056a92ccedeee584f16a27ebed56cdfac3c4c1f66b52958b189b0cbbf", "pdf_page_count": 42, "pdf_extracted_pages": 42, "pdf_extraction_note": "Extracted text from 42/42 pages (first 42 pages scanned).", "metadata_title": "Functional Materials and Innovative Strategies for Wearable Thermal Management Applications", "metadata_author": "Yeongju Jung", "inferred_title": "Functional Materials and Innovative Strategies for Wearable Thermal Management Applications", "document_role": "literature", "pdf_identity_status": "ok", "review_reasons": [], "first_800_chars": "[Page 1] Vol.:(0123456789) 1 3 e-ISSN 2150-5551 CN 31-2103/TB REVIEW Cite as Nano-Micro Lett. (2023) 15:160 Received: 27 March 2023 Accepted: 13 May 2023 Published online: 29 June 2023 © The Author(s) 2023 https://doi.org/10.1007/s40820-023-01126-1 Functional Materials and Innovative Strategies for Wearable Thermal Management Applications Yeongju Jung 1, Minwoo Kim 1, Taegyeom Kim 1, Jiyong Ahn 1, Jinwoo Lee 2 *, Seung Hwan Ko 1,3,4 * HIGHLIGHTS • This article systematically reviews the thermal management wearables with a specific emphasis on materials and strategies to regulate the human body temperature. • Thermal management wearables are subdivided into the active and passive thermal managing methods. • The strength and weakness of each thermal regulatory wearables are discussed in deta", "bibliographic_identity_first_800_chars": "s40820-023-01126-1.pdf Functional Materials and Innovative Strategies for Wearable Thermal Management Applications Yeongju Jung Nano-Micro Letters, https://doi.org/10.1007/s40820-023-01126-1 Vol.:(0123456789) 1 3 e-ISSN 2150-5551 CN 31-2103/TB REVIEW Cite as Nano-Micro Lett. (2023) 15:160 Received: 27 March 2023 Accepted: 13 May 2023 Published online: 29 June 2023 © The Author(s) 2023 https://doi.org/10.1007/s40820-023-01126-1 Functional Materials and Innovative Strategies for Wearable Thermal Management Applications Yeongju Jung 1, Minwoo Kim 1, Taegyeom Kim 1, Jiyong Ahn 1, Jinwoo Lee 2 *, Seung Hwan Ko 1,3,4 * HIGHLIGHTS • This article systematically reviews the thermal management wearables with a specific emphasis on materials and strategies to regulate the human body temperature. • Th"}
+[web] skipped PDF page 1 during text extraction: PdfReadError: More than one /FontFile found in {'/Ascent': 962, '/CapHeight': 718, '/CharSet': '/A/AE/Aacute/Acircumflex/Adieresis/Agrave/Aring/Atilde/B/C/Ccedilla/D/E/Eacute/Ecircumflex/Edieresis/Egrave/Eth/F/G/H/I/Iacute/Icircumflex/Idieresis/Igrave/J/K/L/Lslash/M/N/Ntilde/O/OE/Oacute/Ocircumflex/Odieresis/Ograve/Oslash/Otilde/P/Q/R/S/Scaron/T/Thorn/U/Uacute/Ucircumflex/Udieresis/Ugrave/V/W/X/Y/Yacute/Ydieresis/Z/Zcaron/a/aacute/acircumflex/acute/adieresis/ae/agrave/ampersand/aring/asciicircum/asciitilde/asterisk/at/atilde/b/backslash/bar/braceleft/braceright/bracketleft/bracketright/breve/brokenbar/bullet/c/caron/ccedilla/cedilla/cent/circumflex/colon/comma/copyright/currency/d/dagger/daggerdbl/degree/dieresis/divide/dollar/dotaccent/dotlessi/e/eacute/ecircumflex/edieresis/egrave/eight/ellipsis/emdash/endash/equal/eth/exclam/exclamdown/f/fi/five/fl/florin/four/fraction/g/germandbls/grave/greater/guillemotleft/guillemotright/guilsinglleft/guilsinglright/h/hungarumlaut/hyphen/i/iacute/icircumflex/idieresis/igrave/j/k/l/less/logicalnot/lslash/m/macron/minus/mu/multiply/n/nine/ntilde/numbersign/o/oacute/ocircumflex/odieresis/oe/ogonek/ograve/one/onehalf/onequarter/onesuperior/ordfeminine/ordmasculine/oslash/otilde/p/paragraph/parenleft/parenright/percent/period/periodcentered/perthousand/plus/plusminus/q/question/questiondown/quotedbl/quotedblbase/quotedblleft/quotedblright/quoteleft/quoteright/quotesinglbase/quotesingle/r/registered/ring/s/scaron/section/semicolon/seven/six/slash/space/sterling/t/thorn/three/threequarters/threesuperior/tilde/trademark/two/twosuperior/u/uacute/ucircumflex/udieresis/ugrave/underscore/v/w/x/y/yacute/ydieresis/yen/z/zcaron/zero', '/Descent': -228, '/Flags': 262176, '/FontBBox': [-170, -228, 1003, 962], '/FontFamily': 'Helvetica', '/FontFile': IndirectObject(64, 0, 2585188180944), '/FontFile3': IndirectObject(65, 0, 2585188180944), '/FontName': '/SUEMIF+HxlmjsHelvetica-Bold', '/ItalicAngle': 0, '/Leading': 1200, '/MaxWidth': 1000, '/MissingWidth': 278, '/StemH': 118, '/StemV': 140, '/Type': '/FontDescriptor', '/XHeight': 532}
+[web] skipped PDF page 2 during text extraction: PdfReadError: More than one /FontFile found in {'/Ascent': 962, '/CapHeight': 718, '/CharSet': '/A/AE/Aacute/Acircumflex/Adieresis/Agrave/Aring/Atilde/B/C/Ccedilla/D/E/Eacute/Ecircumflex/Edieresis/Egrave/Eth/F/G/H/I/Iacute/Icircumflex/Idieresis/Igrave/J/K/L/Lslash/M/N/Ntilde/O/OE/Oacute/Ocircumflex/Odieresis/Ograve/Oslash/Otilde/P/Q/R/S/Scaron/T/Thorn/U/Uacute/Ucircumflex/Udieresis/Ugrave/V/W/X/Y/Yacute/Ydieresis/Z/Zcaron/a/aacute/acircumflex/acute/adieresis/ae/agrave/ampersand/aring/asciicircum/asciitilde/asterisk/at/atilde/b/backslash/bar/braceleft/braceright/bracketleft/bracketright/breve/brokenbar/bullet/c/caron/ccedilla/cedilla/cent/circumflex/colon/comma/copyright/currency/d/dagger/daggerdbl/degree/dieresis/divide/dollar/dotaccent/dotlessi/e/eacute/ecircumflex/edieresis/egrave/eight/ellipsis/emdash/endash/equal/eth/exclam/exclamdown/f/fi/five/fl/florin/four/fraction/g/germandbls/grave/greater/guillemotleft/guillemotright/guilsinglleft/guilsinglright/h/hungarumlaut/hyphen/i/iacute/icircumflex/idieresis/igrave/j/k/l/less/logicalnot/lslash/m/macron/minus/mu/multiply/n/nine/ntilde/numbersign/o/oacute/ocircumflex/odieresis/oe/ogonek/ograve/one/onehalf/onequarter/onesuperior/ordfeminine/ordmasculine/oslash/otilde/p/paragraph/parenleft/parenright/percent/period/periodcentered/perthousand/plus/plusminus/q/question/questiondown/quotedbl/quotedblbase/quotedblleft/quotedblright/quoteleft/quoteright/quotesinglbase/quotesingle/r/registered/ring/s/scaron/section/semicolon/seven/six/slash/space/sterling/t/thorn/three/threequarters/threesuperior/tilde/trademark/two/twosuperior/u/uacute/ucircumflex/udieresis/ugrave/underscore/v/w/x/y/yacute/ydieresis/yen/z/zcaron/zero', '/Descent': -228, '/Flags': 262176, '/FontBBox': [-170, -228, 1003, 962], '/FontFamily': 'Helvetica', '/FontFile': IndirectObject(64, 0, 2585188180944), '/FontFile3': IndirectObject(65, 0, 2585188180944), '/FontName': '/SUEMIF+HxlmjsHelvetica-Bold', '/ItalicAngle': 0, '/Leading': 1200, '/MaxWidth': 1000, '/MissingWidth': 278, '/StemH': 118, '/StemV': 140, '/Type': '/FontDescriptor', '/XHeight': 532}
+[web] skipped PDF page 3 during text extraction: PdfReadError: More than one /FontFile found in {'/Ascent': 962, '/CapHeight': 718, '/CharSet': '/A/AE/Aacute/Acircumflex/Adieresis/Agrave/Aring/Atilde/B/C/Ccedilla/D/E/Eacute/Ecircumflex/Edieresis/Egrave/Eth/F/G/H/I/Iacute/Icircumflex/Idieresis/Igrave/J/K/L/Lslash/M/N/Ntilde/O/OE/Oacute/Ocircumflex/Odieresis/Ograve/Oslash/Otilde/P/Q/R/S/Scaron/T/Thorn/U/Uacute/Ucircumflex/Udieresis/Ugrave/V/W/X/Y/Yacute/Ydieresis/Z/Zcaron/a/aacute/acircumflex/acute/adieresis/ae/agrave/ampersand/aring/asciicircum/asciitilde/asterisk/at/atilde/b/backslash/bar/braceleft/braceright/bracketleft/bracketright/breve/brokenbar/bullet/c/caron/ccedilla/cedilla/cent/circumflex/colon/comma/copyright/currency/d/dagger/daggerdbl/degree/dieresis/divide/dollar/dotaccent/dotlessi/e/eacute/ecircumflex/edieresis/egrave/eight/ellipsis/emdash/endash/equal/eth/exclam/exclamdown/f/fi/five/fl/florin/four/fraction/g/germandbls/grave/greater/guillemotleft/guillemotright/guilsinglleft/guilsinglright/h/hungarumlaut/hyphen/i/iacute/icircumflex/idieresis/igrave/j/k/l/less/logicalnot/lslash/m/macron/minus/mu/multiply/n/nine/ntilde/numbersign/o/oacute/ocircumflex/odieresis/oe/ogonek/ograve/one/onehalf/onequarter/onesuperior/ordfeminine/ordmasculine/oslash/otilde/p/paragraph/parenleft/parenright/percent/period/periodcentered/perthousand/plus/plusminus/q/question/questiondown/quotedbl/quotedblbase/quotedblleft/quotedblright/quoteleft/quoteright/quotesinglbase/quotesingle/r/registered/ring/s/scaron/section/semicolon/seven/six/slash/space/sterling/t/thorn/three/threequarters/threesuperior/tilde/trademark/two/twosuperior/u/uacute/ucircumflex/udieresis/ugrave/underscore/v/w/x/y/yacute/ydieresis/yen/z/zcaron/zero', '/Descent': -228, '/Flags': 262176, '/FontBBox': [-170, -228, 1003, 962], '/FontFamily': 'Helvetica', '/FontFile': IndirectObject(9, 0, 2585188180944), '/FontFile3': IndirectObject(10, 0, 2585188180944), '/FontName': '/SUEMIF+YkyxlmHelvetica-Bold', '/ItalicAngle': 0, '/Leading': 1200, '/MaxWidth': 1000, '/MissingWidth': 278, '/StemH': 118, '/StemV': 140, '/Type': '/FontDescriptor', '/XHeight': 532}
+[web] skipped PDF page 4 during text extraction: PdfReadError: More than one /FontFile found in {'/Ascent': 962, '/CapHeight': 718, '/CharSet': '/A/AE/Aacute/Acircumflex/Adieresis/Agrave/Aring/Atilde/B/C/Ccedilla/D/E/Eacute/Ecircumflex/Edieresis/Egrave/Eth/F/G/H/I/Iacute/Icircumflex/Idieresis/Igrave/J/K/L/Lslash/M/N/Ntilde/O/OE/Oacute/Ocircumflex/Odieresis/Ograve/Oslash/Otilde/P/Q/R/S/Scaron/T/Thorn/U/Uacute/Ucircumflex/Udieresis/Ugrave/V/W/X/Y/Yacute/Ydieresis/Z/Zcaron/a/aacute/acircumflex/acute/adieresis/ae/agrave/ampersand/aring/asciicircum/asciitilde/asterisk/at/atilde/b/backslash/bar/braceleft/braceright/bracketleft/bracketright/breve/brokenbar/bullet/c/caron/ccedilla/cedilla/cent/circumflex/colon/comma/copyright/currency/d/dagger/daggerdbl/degree/dieresis/divide/dollar/dotaccent/dotlessi/e/eacute/ecircumflex/edieresis/egrave/eight/ellipsis/emdash/endash/equal/eth/exclam/exclamdown/f/fi/five/fl/florin/four/fraction/g/germandbls/grave/greater/guillemotleft/guillemotright/guilsinglleft/guilsinglright/h/hungarumlaut/hyphen/i/iacute/icircumflex/idieresis/igrave/j/k/l/less/logicalnot/lslash/m/macron/minus/mu/multiply/n/nine/ntilde/numbersign/o/oacute/ocircumflex/odieresis/oe/ogonek/ograve/one/onehalf/onequarter/onesuperior/ordfeminine/ordmasculine/oslash/otilde/p/paragraph/parenleft/parenright/percent/period/periodcentered/perthousand/plus/plusminus/q/question/questiondown/quotedbl/quotedblbase/quotedblleft/quotedblright/quoteleft/quoteright/quotesinglbase/quotesingle/r/registered/ring/s/scaron/section/semicolon/seven/six/slash/space/sterling/t/thorn/three/threequarters/threesuperior/tilde/trademark/two/twosuperior/u/uacute/ucircumflex/udieresis/ugrave/underscore/v/w/x/y/yacute/ydieresis/yen/z/zcaron/zero', '/Descent': -228, '/Flags': 262176, '/FontBBox': [-170, -228, 1003, 962], '/FontFamily': 'Helvetica', '/FontFile': IndirectObject(64, 0, 2585188180944), '/FontFile3': IndirectObject(65, 0, 2585188180944), '/FontName': '/SUEMIF+HxlmjsHelvetica-Bold', '/ItalicAngle': 0, '/Leading': 1200, '/MaxWidth': 1000, '/MissingWidth': 278, '/StemH': 118, '/StemV': 140, '/Type': '/FontDescriptor', '/XHeight': 532}
+[web] used PyMuPDF fallback PDF extraction; extracted 4/4 pages.
+[web] uploaded PDF reference debug {"filename": "323533a0.pdf", "content_length": 1376827, "content_sha256": "1f7b0339d34bb6dac27d6433a7b271e161251c641d1ca67242284f0a5d6ac19e", "pdf_page_count": 4, "pdf_extracted_pages": 4, "pdf_extraction_note": "Extracted text from 4/4 pages (first 4 pages scanned). Used PyMuPDF fallback extraction. Skipped 4 page(s) because pypdf could not extract text from them.", "metadata_title": "6088 - V323.indd", "metadata_author": "", "inferred_title": "Learning representations by back-propagating errors", "document_role": "literature", "pdf_identity_status": "ok", "review_reasons": [], "first_800_chars": "[Page 1] © Nature Publishing Group 1986 _NA~TU_R_E_V_O_L_. 3_2_3 _9_0_CT_O_B_E_R_1_98_6 _________ LETTERSTONATURE ------------------=533 delineating the absolute indigeneity of amino acids in fossils. As AMS techniques are refined to handle smaller samples, it may also become possible to date individual amino acid enan- tiomers by the 14C method. If one enantiomer is entirely derived from the other by racemization during diagenesis, the individual D- and L-enantiomers for a given amino acid should have identical 14C ages. Older, more poorly preserved fossils may not always prove amenable to the determination of amino acid indigeneity by the stable isotope method, as the prospects for complete replace- ment of indigenous amino acids with non-indigenous amino acids increases with time. As no", "bibliographic_identity_first_800_chars": "323533a0.pdf 6088 - V323.indd © Nature Publishing Group 1986 _NA~TU_R_E_V_O_L_. 3_2_3 _9_0_CT_O_B_E_R_1_98_6 _________ LETTERSTONATURE ------------------=533 delineating the absolute indigeneity of amino acids in fossils. As AMS techniques are refined to handle smaller samples, it may also become possible to date individual amino acid enan- tiomers by the 14C method. If one enantiomer is entirely derived from the other by racemization during diagenesis, the individual D- and L-enantiomers for a given amino acid should have identical 14C ages. Older, more poorly preserved fossils may not always prove amenable to the determination of amino acid indigeneity by the stable isotope method, as the prospects for complete replace- ment of indigenous amino acids with non-indigenous amino acids incre"}
+[web] uploaded PDF reference debug {"filename": "BF00994018.pdf", "content_length": 1502380, "content_sha256": "4aed6fc3d300ce7552b341e3e01f3d795aa437de1045c022e6ee0b4309492531", "pdf_page_count": 25, "pdf_extracted_pages": 25, "pdf_extraction_note": "Extracted text from 25/25 pages (first 25 pages scanned).", "metadata_title": "Support-vector networks", "metadata_author": "", "inferred_title": "Support-vector networks", "document_role": "literature", "pdf_identity_status": "ok", "review_reasons": [], "first_800_chars": "[Page 1] Machine Leaming, 20, 273-297 (1995) ~) 1995 Kluwer Academic Publishers, Boston. Manufactured in The Netherlands. Support-Vector Networks CORINNA CORTES VLADIMIR VAPNIK AT&T Bell Labs., Hohndel, NJ 07733, USA corinna@ neurai.att.com vlad@neurai.att.com Editor: Lorenza Saitta Abstract. The support-vector network is a new leaming machine for two-group classification problems. The machine conceptually implements the following idea: input vectors are non-linearly mapped to a very high- dimension feature space. In this feature space a linear decision surface is constructed. Special properties of the decision surface ensures high generalization ability of the learning machine. The idea behind the support-vector network was previously implemented for the restricted case where the training", "bibliographic_identity_first_800_chars": "BF00994018.pdf Support-vector networks Machine Leaming, 20, 273-297 (1995) ~) 1995 Kluwer Academic Publishers, Boston. Manufactured in The Netherlands. Support-Vector Networks CORINNA CORTES VLADIMIR VAPNIK AT&T Bell Labs., Hohndel, NJ 07733, USA corinna@ neurai.att.com vlad@neurai.att.com Editor: Lorenza Saitta Abstract. The support-vector network is a new leaming machine for two-group classification problems. The machine conceptually implements the following idea: input vectors are non-linearly mapped to a very high- dimension feature space. In this feature space a linear decision surface is constructed. Special properties of the decision surface ensures high generalization ability of the learning machine. The idea behind the support-vector network was previously implemented for the rest"}
+[web] 127.0.0.1 - "POST /api/literature-analysis/pdf HTTP/1.1" 202 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/60be99846597413393fc1c9579af22c5 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/60be99846597413393fc1c9579af22c5 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/60be99846597413393fc1c9579af22c5 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/60be99846597413393fc1c9579af22c5 HTTP/1.1" 200 -
+[literature] 1/3 Assigning literature to four analysts...
+[web] 127.0.0.1 - "GET /api/literature-analysis/60be99846597413393fc1c9579af22c5 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET / HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /styles.css?v=source-filename-1 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /app.js?v=source-filename-1 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET / HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /styles.css?v=source-filename-1 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /app.js?v=source-filename-1 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET / HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /styles.css?v=source-filename-1 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /app.js?v=source-filename-1 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET / HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /styles.css?v=source-filename-1 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /app.js?v=source-filename-1 HTTP/1.1" 200 -
+[literature] 2/3 Running four literature analysts in parallel...
+[web] uploaded PDF reference debug {"filename": "s40820-023-01126-1.pdf", "content_length": 5081536, "content_sha256": "eab95f5056a92ccedeee584f16a27ebed56cdfac3c4c1f66b52958b189b0cbbf", "pdf_page_count": 42, "pdf_extracted_pages": 42, "pdf_extraction_note": "Extracted text from 42/42 pages (first 42 pages scanned).", "metadata_title": "Functional Materials and Innovative Strategies for Wearable Thermal Management Applications", "metadata_author": "Yeongju Jung", "inferred_title": "Functional Materials and Innovative Strategies for Wearable Thermal Management Applications", "document_role": "literature", "pdf_identity_status": "ok", "review_reasons": [], "first_800_chars": "[Page 1] Vol.:(0123456789) 1 3 e-ISSN 2150-5551 CN 31-2103/TB REVIEW Cite as Nano-Micro Lett. (2023) 15:160 Received: 27 March 2023 Accepted: 13 May 2023 Published online: 29 June 2023 © The Author(s) 2023 https://doi.org/10.1007/s40820-023-01126-1 Functional Materials and Innovative Strategies for Wearable Thermal Management Applications Yeongju Jung 1, Minwoo Kim 1, Taegyeom Kim 1, Jiyong Ahn 1, Jinwoo Lee 2 *, Seung Hwan Ko 1,3,4 * HIGHLIGHTS • This article systematically reviews the thermal management wearables with a specific emphasis on materials and strategies to regulate the human body temperature. • Thermal management wearables are subdivided into the active and passive thermal managing methods. • The strength and weakness of each thermal regulatory wearables are discussed in deta", "bibliographic_identity_first_800_chars": "s40820-023-01126-1.pdf Functional Materials and Innovative Strategies for Wearable Thermal Management Applications Yeongju Jung Nano-Micro Letters, https://doi.org/10.1007/s40820-023-01126-1 Vol.:(0123456789) 1 3 e-ISSN 2150-5551 CN 31-2103/TB REVIEW Cite as Nano-Micro Lett. (2023) 15:160 Received: 27 March 2023 Accepted: 13 May 2023 Published online: 29 June 2023 © The Author(s) 2023 https://doi.org/10.1007/s40820-023-01126-1 Functional Materials and Innovative Strategies for Wearable Thermal Management Applications Yeongju Jung 1, Minwoo Kim 1, Taegyeom Kim 1, Jiyong Ahn 1, Jinwoo Lee 2 *, Seung Hwan Ko 1,3,4 * HIGHLIGHTS • This article systematically reviews the thermal management wearables with a specific emphasis on materials and strategies to regulate the human body temperature. • Th"}
+[web] skipped PDF page 1 during text extraction: PdfReadError: More than one /FontFile found in {'/Ascent': 962, '/CapHeight': 718, '/CharSet': '/A/AE/Aacute/Acircumflex/Adieresis/Agrave/Aring/Atilde/B/C/Ccedilla/D/E/Eacute/Ecircumflex/Edieresis/Egrave/Eth/F/G/H/I/Iacute/Icircumflex/Idieresis/Igrave/J/K/L/Lslash/M/N/Ntilde/O/OE/Oacute/Ocircumflex/Odieresis/Ograve/Oslash/Otilde/P/Q/R/S/Scaron/T/Thorn/U/Uacute/Ucircumflex/Udieresis/Ugrave/V/W/X/Y/Yacute/Ydieresis/Z/Zcaron/a/aacute/acircumflex/acute/adieresis/ae/agrave/ampersand/aring/asciicircum/asciitilde/asterisk/at/atilde/b/backslash/bar/braceleft/braceright/bracketleft/bracketright/breve/brokenbar/bullet/c/caron/ccedilla/cedilla/cent/circumflex/colon/comma/copyright/currency/d/dagger/daggerdbl/degree/dieresis/divide/dollar/dotaccent/dotlessi/e/eacute/ecircumflex/edieresis/egrave/eight/ellipsis/emdash/endash/equal/eth/exclam/exclamdown/f/fi/five/fl/florin/four/fraction/g/germandbls/grave/greater/guillemotleft/guillemotright/guilsinglleft/guilsinglright/h/hungarumlaut/hyphen/i/iacute/icircumflex/idieresis/igrave/j/k/l/less/logicalnot/lslash/m/macron/minus/mu/multiply/n/nine/ntilde/numbersign/o/oacute/ocircumflex/odieresis/oe/ogonek/ograve/one/onehalf/onequarter/onesuperior/ordfeminine/ordmasculine/oslash/otilde/p/paragraph/parenleft/parenright/percent/period/periodcentered/perthousand/plus/plusminus/q/question/questiondown/quotedbl/quotedblbase/quotedblleft/quotedblright/quoteleft/quoteright/quotesinglbase/quotesingle/r/registered/ring/s/scaron/section/semicolon/seven/six/slash/space/sterling/t/thorn/three/threequarters/threesuperior/tilde/trademark/two/twosuperior/u/uacute/ucircumflex/udieresis/ugrave/underscore/v/w/x/y/yacute/ydieresis/yen/z/zcaron/zero', '/Descent': -228, '/Flags': 262176, '/FontBBox': [-170, -228, 1003, 962], '/FontFamily': 'Helvetica', '/FontFile': IndirectObject(64, 0, 2585158034960), '/FontFile3': IndirectObject(65, 0, 2585158034960), '/FontName': '/SUEMIF+HxlmjsHelvetica-Bold', '/ItalicAngle': 0, '/Leading': 1200, '/MaxWidth': 1000, '/MissingWidth': 278, '/StemH': 118, '/StemV': 140, '/Type': '/FontDescriptor', '/XHeight': 532}
+[web] skipped PDF page 2 during text extraction: PdfReadError: More than one /FontFile found in {'/Ascent': 962, '/CapHeight': 718, '/CharSet': '/A/AE/Aacute/Acircumflex/Adieresis/Agrave/Aring/Atilde/B/C/Ccedilla/D/E/Eacute/Ecircumflex/Edieresis/Egrave/Eth/F/G/H/I/Iacute/Icircumflex/Idieresis/Igrave/J/K/L/Lslash/M/N/Ntilde/O/OE/Oacute/Ocircumflex/Odieresis/Ograve/Oslash/Otilde/P/Q/R/S/Scaron/T/Thorn/U/Uacute/Ucircumflex/Udieresis/Ugrave/V/W/X/Y/Yacute/Ydieresis/Z/Zcaron/a/aacute/acircumflex/acute/adieresis/ae/agrave/ampersand/aring/asciicircum/asciitilde/asterisk/at/atilde/b/backslash/bar/braceleft/braceright/bracketleft/bracketright/breve/brokenbar/bullet/c/caron/ccedilla/cedilla/cent/circumflex/colon/comma/copyright/currency/d/dagger/daggerdbl/degree/dieresis/divide/dollar/dotaccent/dotlessi/e/eacute/ecircumflex/edieresis/egrave/eight/ellipsis/emdash/endash/equal/eth/exclam/exclamdown/f/fi/five/fl/florin/four/fraction/g/germandbls/grave/greater/guillemotleft/guillemotright/guilsinglleft/guilsinglright/h/hungarumlaut/hyphen/i/iacute/icircumflex/idieresis/igrave/j/k/l/less/logicalnot/lslash/m/macron/minus/mu/multiply/n/nine/ntilde/numbersign/o/oacute/ocircumflex/odieresis/oe/ogonek/ograve/one/onehalf/onequarter/onesuperior/ordfeminine/ordmasculine/oslash/otilde/p/paragraph/parenleft/parenright/percent/period/periodcentered/perthousand/plus/plusminus/q/question/questiondown/quotedbl/quotedblbase/quotedblleft/quotedblright/quoteleft/quoteright/quotesinglbase/quotesingle/r/registered/ring/s/scaron/section/semicolon/seven/six/slash/space/sterling/t/thorn/three/threequarters/threesuperior/tilde/trademark/two/twosuperior/u/uacute/ucircumflex/udieresis/ugrave/underscore/v/w/x/y/yacute/ydieresis/yen/z/zcaron/zero', '/Descent': -228, '/Flags': 262176, '/FontBBox': [-170, -228, 1003, 962], '/FontFamily': 'Helvetica', '/FontFile': IndirectObject(64, 0, 2585158034960), '/FontFile3': IndirectObject(65, 0, 2585158034960), '/FontName': '/SUEMIF+HxlmjsHelvetica-Bold', '/ItalicAngle': 0, '/Leading': 1200, '/MaxWidth': 1000, '/MissingWidth': 278, '/StemH': 118, '/StemV': 140, '/Type': '/FontDescriptor', '/XHeight': 532}
+[web] skipped PDF page 3 during text extraction: PdfReadError: More than one /FontFile found in {'/Ascent': 962, '/CapHeight': 718, '/CharSet': '/A/AE/Aacute/Acircumflex/Adieresis/Agrave/Aring/Atilde/B/C/Ccedilla/D/E/Eacute/Ecircumflex/Edieresis/Egrave/Eth/F/G/H/I/Iacute/Icircumflex/Idieresis/Igrave/J/K/L/Lslash/M/N/Ntilde/O/OE/Oacute/Ocircumflex/Odieresis/Ograve/Oslash/Otilde/P/Q/R/S/Scaron/T/Thorn/U/Uacute/Ucircumflex/Udieresis/Ugrave/V/W/X/Y/Yacute/Ydieresis/Z/Zcaron/a/aacute/acircumflex/acute/adieresis/ae/agrave/ampersand/aring/asciicircum/asciitilde/asterisk/at/atilde/b/backslash/bar/braceleft/braceright/bracketleft/bracketright/breve/brokenbar/bullet/c/caron/ccedilla/cedilla/cent/circumflex/colon/comma/copyright/currency/d/dagger/daggerdbl/degree/dieresis/divide/dollar/dotaccent/dotlessi/e/eacute/ecircumflex/edieresis/egrave/eight/ellipsis/emdash/endash/equal/eth/exclam/exclamdown/f/fi/five/fl/florin/four/fraction/g/germandbls/grave/greater/guillemotleft/guillemotright/guilsinglleft/guilsinglright/h/hungarumlaut/hyphen/i/iacute/icircumflex/idieresis/igrave/j/k/l/less/logicalnot/lslash/m/macron/minus/mu/multiply/n/nine/ntilde/numbersign/o/oacute/ocircumflex/odieresis/oe/ogonek/ograve/one/onehalf/onequarter/onesuperior/ordfeminine/ordmasculine/oslash/otilde/p/paragraph/parenleft/parenright/percent/period/periodcentered/perthousand/plus/plusminus/q/question/questiondown/quotedbl/quotedblbase/quotedblleft/quotedblright/quoteleft/quoteright/quotesinglbase/quotesingle/r/registered/ring/s/scaron/section/semicolon/seven/six/slash/space/sterling/t/thorn/three/threequarters/threesuperior/tilde/trademark/two/twosuperior/u/uacute/ucircumflex/udieresis/ugrave/underscore/v/w/x/y/yacute/ydieresis/yen/z/zcaron/zero', '/Descent': -228, '/Flags': 262176, '/FontBBox': [-170, -228, 1003, 962], '/FontFamily': 'Helvetica', '/FontFile': IndirectObject(9, 0, 2585158034960), '/FontFile3': IndirectObject(10, 0, 2585158034960), '/FontName': '/SUEMIF+YkyxlmHelvetica-Bold', '/ItalicAngle': 0, '/Leading': 1200, '/MaxWidth': 1000, '/MissingWidth': 278, '/StemH': 118, '/StemV': 140, '/Type': '/FontDescriptor', '/XHeight': 532}
+[web] skipped PDF page 4 during text extraction: PdfReadError: More than one /FontFile found in {'/Ascent': 962, '/CapHeight': 718, '/CharSet': '/A/AE/Aacute/Acircumflex/Adieresis/Agrave/Aring/Atilde/B/C/Ccedilla/D/E/Eacute/Ecircumflex/Edieresis/Egrave/Eth/F/G/H/I/Iacute/Icircumflex/Idieresis/Igrave/J/K/L/Lslash/M/N/Ntilde/O/OE/Oacute/Ocircumflex/Odieresis/Ograve/Oslash/Otilde/P/Q/R/S/Scaron/T/Thorn/U/Uacute/Ucircumflex/Udieresis/Ugrave/V/W/X/Y/Yacute/Ydieresis/Z/Zcaron/a/aacute/acircumflex/acute/adieresis/ae/agrave/ampersand/aring/asciicircum/asciitilde/asterisk/at/atilde/b/backslash/bar/braceleft/braceright/bracketleft/bracketright/breve/brokenbar/bullet/c/caron/ccedilla/cedilla/cent/circumflex/colon/comma/copyright/currency/d/dagger/daggerdbl/degree/dieresis/divide/dollar/dotaccent/dotlessi/e/eacute/ecircumflex/edieresis/egrave/eight/ellipsis/emdash/endash/equal/eth/exclam/exclamdown/f/fi/five/fl/florin/four/fraction/g/germandbls/grave/greater/guillemotleft/guillemotright/guilsinglleft/guilsinglright/h/hungarumlaut/hyphen/i/iacute/icircumflex/idieresis/igrave/j/k/l/less/logicalnot/lslash/m/macron/minus/mu/multiply/n/nine/ntilde/numbersign/o/oacute/ocircumflex/odieresis/oe/ogonek/ograve/one/onehalf/onequarter/onesuperior/ordfeminine/ordmasculine/oslash/otilde/p/paragraph/parenleft/parenright/percent/period/periodcentered/perthousand/plus/plusminus/q/question/questiondown/quotedbl/quotedblbase/quotedblleft/quotedblright/quoteleft/quoteright/quotesinglbase/quotesingle/r/registered/ring/s/scaron/section/semicolon/seven/six/slash/space/sterling/t/thorn/three/threequarters/threesuperior/tilde/trademark/two/twosuperior/u/uacute/ucircumflex/udieresis/ugrave/underscore/v/w/x/y/yacute/ydieresis/yen/z/zcaron/zero', '/Descent': -228, '/Flags': 262176, '/FontBBox': [-170, -228, 1003, 962], '/FontFamily': 'Helvetica', '/FontFile': IndirectObject(64, 0, 2585158034960), '/FontFile3': IndirectObject(65, 0, 2585158034960), '/FontName': '/SUEMIF+HxlmjsHelvetica-Bold', '/ItalicAngle': 0, '/Leading': 1200, '/MaxWidth': 1000, '/MissingWidth': 278, '/StemH': 118, '/StemV': 140, '/Type': '/FontDescriptor', '/XHeight': 532}
+[web] used PyMuPDF fallback PDF extraction; extracted 4/4 pages.
+[web] uploaded PDF reference debug {"filename": "323533a0.pdf", "content_length": 1376827, "content_sha256": "1f7b0339d34bb6dac27d6433a7b271e161251c641d1ca67242284f0a5d6ac19e", "pdf_page_count": 4, "pdf_extracted_pages": 4, "pdf_extraction_note": "Extracted text from 4/4 pages (first 4 pages scanned). Used PyMuPDF fallback extraction. Skipped 4 page(s) because pypdf could not extract text from them.", "metadata_title": "6088 - V323.indd", "metadata_author": "", "inferred_title": "Learning representations by back-propagating errors", "document_role": "literature", "pdf_identity_status": "ok", "review_reasons": [], "first_800_chars": "[Page 1] © Nature Publishing Group 1986 _NA~TU_R_E_V_O_L_. 3_2_3 _9_0_CT_O_B_E_R_1_98_6 _________ LETTERSTONATURE ------------------=533 delineating the absolute indigeneity of amino acids in fossils. As AMS techniques are refined to handle smaller samples, it may also become possible to date individual amino acid enan- tiomers by the 14C method. If one enantiomer is entirely derived from the other by racemization during diagenesis, the individual D- and L-enantiomers for a given amino acid should have identical 14C ages. Older, more poorly preserved fossils may not always prove amenable to the determination of amino acid indigeneity by the stable isotope method, as the prospects for complete replace- ment of indigenous amino acids with non-indigenous amino acids increases with time. As no", "bibliographic_identity_first_800_chars": "323533a0.pdf 6088 - V323.indd © Nature Publishing Group 1986 _NA~TU_R_E_V_O_L_. 3_2_3 _9_0_CT_O_B_E_R_1_98_6 _________ LETTERSTONATURE ------------------=533 delineating the absolute indigeneity of amino acids in fossils. As AMS techniques are refined to handle smaller samples, it may also become possible to date individual amino acid enan- tiomers by the 14C method. If one enantiomer is entirely derived from the other by racemization during diagenesis, the individual D- and L-enantiomers for a given amino acid should have identical 14C ages. Older, more poorly preserved fossils may not always prove amenable to the determination of amino acid indigeneity by the stable isotope method, as the prospects for complete replace- ment of indigenous amino acids with non-indigenous amino acids incre"}
+[web] uploaded PDF reference debug {"filename": "BF00994018.pdf", "content_length": 1502380, "content_sha256": "4aed6fc3d300ce7552b341e3e01f3d795aa437de1045c022e6ee0b4309492531", "pdf_page_count": 25, "pdf_extracted_pages": 25, "pdf_extraction_note": "Extracted text from 25/25 pages (first 25 pages scanned).", "metadata_title": "Support-vector networks", "metadata_author": "", "inferred_title": "Support-vector networks", "document_role": "literature", "pdf_identity_status": "ok", "review_reasons": [], "first_800_chars": "[Page 1] Machine Leaming, 20, 273-297 (1995) ~) 1995 Kluwer Academic Publishers, Boston. Manufactured in The Netherlands. Support-Vector Networks CORINNA CORTES VLADIMIR VAPNIK AT&T Bell Labs., Hohndel, NJ 07733, USA corinna@ neurai.att.com vlad@neurai.att.com Editor: Lorenza Saitta Abstract. The support-vector network is a new leaming machine for two-group classification problems. The machine conceptually implements the following idea: input vectors are non-linearly mapped to a very high- dimension feature space. In this feature space a linear decision surface is constructed. Special properties of the decision surface ensures high generalization ability of the learning machine. The idea behind the support-vector network was previously implemented for the restricted case where the training", "bibliographic_identity_first_800_chars": "BF00994018.pdf Support-vector networks Machine Leaming, 20, 273-297 (1995) ~) 1995 Kluwer Academic Publishers, Boston. Manufactured in The Netherlands. Support-Vector Networks CORINNA CORTES VLADIMIR VAPNIK AT&T Bell Labs., Hohndel, NJ 07733, USA corinna@ neurai.att.com vlad@neurai.att.com Editor: Lorenza Saitta Abstract. The support-vector network is a new leaming machine for two-group classification problems. The machine conceptually implements the following idea: input vectors are non-linearly mapped to a very high- dimension feature space. In this feature space a linear decision surface is constructed. Special properties of the decision surface ensures high generalization ability of the learning machine. The idea behind the support-vector network was previously implemented for the rest"}
+[web] 127.0.0.1 - "POST /api/literature-analysis/pdf HTTP/1.1" 202 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[literature] 1/3 Assigning literature to four analysts...
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[literature] 2/3 Running four literature analysts in parallel...
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[literature] Critical Reviewer batch failed; retrying one paper at a time. LLMServiceError: The upstream model output hit the token limit and was truncated. Try fast mode, narrow the topic, or increase max_tokens.
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[literature] Evidence Analyst batch failed; retrying one paper at a time. LLMServiceError: The upstream model output hit the token limit and was truncated. Try fast mode, narrow the topic, or increase max_tokens.
+[literature] Methodology Analyst batch failed; retrying one paper at a time. LLMServiceError: The upstream model output hit the token limit and was truncated. Try fast mode, narrow the topic, or increase max_tokens.
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[literature] Contribution Analyst batch failed; retrying one paper at a time. LLMServiceError: The upstream model output hit the token limit and was truncated. Try fast mode, narrow the topic, or increase max_tokens.
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[literature] 3/3 Integrating literature analysis rows and cross-paper summary...
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[literature] Integration failed; retrying summary-only synthesis. LLMServiceError: The upstream model output hit the token limit and was truncated. Try fast mode, narrow the topic, or increase max_tokens.
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[literature] Integration failed; retrying summary-only synthesis. LLMServiceError: Upstream model service timed out or is temporarily unavailable. Please try again later.
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[literature] Chinese translation post-processing failed; keeping original output. LLMServiceError: The upstream model output hit the token limit and was truncated. Try fast mode, narrow the topic, or increase max_tokens.
+[literature] Done.
+[web] 127.0.0.1 - "GET /api/literature-analysis/07ef1653fcb047aa96a0317061c89c1f HTTP/1.1" 200 -
+[literature] Methodology Analyst batch failed; retrying one paper at a time. LLMServiceError: Upstream model service timed out or is temporarily unavailable. Please try again later.
+[literature] Critical Reviewer batch failed; retrying one paper at a time. LLMServiceError: Upstream model service timed out or is temporarily unavailable. Please try again later.
+[literature] 3/3 Integrating literature analysis rows and cross-paper summary...

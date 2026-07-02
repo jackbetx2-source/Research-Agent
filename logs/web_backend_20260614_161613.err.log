@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "C:\Users\HUAWEI\Desktop\pROJECTS\research_agent_package_20260530_130104\Research Agent\web_app.py", line 2089, in <module>
+    main()
+  File "C:\Users\HUAWEI\Desktop\pROJECTS\research_agent_package_20260530_130104\Research Agent\web_app.py", line 2085, in main
+    server.serve_forever()
+  File "D:\Anaconda3\envs\research-agent\Lib\socketserver.py", line 235, in serve_forever
+    ready = selector.select(poll_interval)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\research-agent\Lib\selectors.py", line 323, in select
+    r, w, _ = self._select(self._readers, self._writers, [], timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda3\envs\research-agent\Lib\selectors.py", line 314, in _select
+    r, w, x = select.select(r, w, w, timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
