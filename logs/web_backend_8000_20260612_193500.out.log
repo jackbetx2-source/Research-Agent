@@ -1,0 +1,12 @@
+Research Agent Web is listening on http://0.0.0.0:8000
+[web] 127.0.0.1 - "GET /health HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /health HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET / HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /styles.css?v=split-table-scroll-1 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /app.js?v=analysis-export-title-1 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET / HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /styles.css?v=split-table-scroll-1 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /app.js?v=analysis-export-title-1 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET / HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /styles.css?v=split-table-scroll-1 HTTP/1.1" 200 -
+[web] 127.0.0.1 - "GET /app.js?v=analysis-export-title-1 HTTP/1.1" 200 -

@@ -1,0 +1,26 @@
+G:\COLLECTION\文献分析助手\web_app.py:4: DeprecationWarning: 'cgi' is deprecated and slated for removal in Python 3.13
+  import cgi
+Traceback (most recent call last):
+  File "G:\COLLECTION\文献分析助手\web_app.py", line 170, in _handle_literature_pdf_analysis
+    uploaded_references = [
+                          ^
+  File "G:\COLLECTION\文献分析助手\web_app.py", line 171, in <listcomp>
+    self._uploaded_file_to_reference(filename, content)
+  File "G:\COLLECTION\文献分析助手\web_app.py", line 689, in _uploaded_file_to_reference
+    extracted = ResearchWebHandler._extract_pdf_content(content)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\COLLECTION\文献分析助手\web_app.py", line 1160, in _extract_pdf_content
+    page_text = ResearchWebHandler._normalize_extracted_text(page.extract_text() or "")
+                                                             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\windows11\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pypdf\_page.py", line 2047, in extract_text
+    return self._extract_text(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\windows11\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pypdf\_page.py", line 1720, in _extract_text
+    fonts[font_resource] = Font.from_font_resource(font_resource_object)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\windows11\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pypdf\_font.py", line 308, in from_font_resource
+    font_descriptor = FontDescriptor(**cls._parse_font_descriptor(font_descriptor_obj))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\windows11\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pypdf\_font.py", line 261, in _parse_font_descriptor
+    raise PdfReadError(f"More than one /FontFile found in {font_descriptor_obj}")
+pypdf.errors.PdfReadError: More than one /FontFile found in {'/Ascent': 962, '/CapHeight': 718, '/CharSet': '/A/AE/Aacute/Acircumflex/Adieresis/Agrave/Aring/Atilde/B/C/Ccedilla/D/E/Eacute/Ecircumflex/Edieresis/Egrave/Eth/F/G/H/I/Iacute/Icircumflex/Idieresis/Igrave/J/K/L/Lslash/M/N/Ntilde/O/OE/Oacute/Ocircumflex/Odieresis/Ograve/Oslash/Otilde/P/Q/R/S/Scaron/T/Thorn/U/Uacute/Ucircumflex/Udieresis/Ugrave/V/W/X/Y/Yacute/Ydieresis/Z/Zcaron/a/aacute/acircumflex/acute/adieresis/ae/agrave/ampersand/aring/asciicircum/asciitilde/asterisk/at/atilde/b/backslash/bar/braceleft/braceright/bracketleft/bracketright/breve/brokenbar/bullet/c/caron/ccedilla/cedilla/cent/circumflex/colon/comma/copyright/currency/d/dagger/daggerdbl/degree/dieresis/divide/dollar/dotaccent/dotlessi/e/eacute/ecircumflex/edieresis/egrave/eight/ellipsis/emdash/endash/equal/eth/exclam/exclamdown/f/fi/five/fl/florin/four/fraction/g/germandbls/grave/greater/guillemotleft/guillemotright/guilsinglleft/guilsinglright/h/hungarumlaut/hyphen/i/iacute/icircumflex/idieresis/igrave/j/k/l/less/logicalnot/lslash/m/macron/minus/mu/multiply/n/nine/ntilde/numbersign/o/oacute/ocircumflex/odieresis/oe/ogonek/ograve/one/onehalf/onequarter/onesuperior/ordfeminine/ordmasculine/oslash/otilde/p/paragraph/parenleft/parenright/percent/period/periodcentered/perthousand/plus/plusminus/q/question/questiondown/quotedbl/quotedblbase/quotedblleft/quotedblright/quoteleft/quoteright/quotesinglbase/quotesingle/r/registered/ring/s/scaron/section/semicolon/seven/six/slash/space/sterling/t/thorn/three/threequarters/threesuperior/tilde/trademark/two/twosuperior/u/uacute/ucircumflex/udieresis/ugrave/underscore/v/w/x/y/yacute/ydieresis/yen/z/zcaron/zero', '/Descent': -228, '/Flags': 262176, '/FontBBox': [-170, -228, 1003, 962], '/FontFamily': 'Helvetica', '/FontFile': IndirectObject(64, 0, 1764479677136), '/FontFile3': IndirectObject(65, 0, 1764479677136), '/FontName': '/SUEMIF+HxlmjsHelvetica-Bold', '/ItalicAngle': 0, '/Leading': 1200, '/MaxWidth': 1000, '/MissingWidth': 278, '/StemH': 118, '/StemV': 140, '/Type': '/FontDescriptor', '/XHeight': 532}

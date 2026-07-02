@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Research Agent</title>
+    <link rel="stylesheet" href="styles.css?v=merged-slr-inputs-1" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar" aria-label="页面导航">
+        <div>
+          <p class="eyebrow">Local Research Agent</p>
+          <strong class="app-name">研究助手</strong>
+        </div>
+        <nav class="page-tabs" aria-label="主导航">
+          <button class="tab-button is-active" type="button" data-page-target="workspace">研究报告</button>
+          <button class="tab-button" type="button" data-page-target="slr">文献综述</button>
+          <button class="tab-button" type="button" data-page-target="literature">文献分析</button>
+          <button class="tab-button" type="button" data-page-target="about">项目介绍</button>
+        </nav>
+      </header>
+
+      <section id="workspacePage" class="page-view is-active" data-page="workspace">
+        <section class="input-band">
+          <div class="brand-row">
+            <div>
+              <p class="eyebrow">Topic Input</p>
+              <h1>输入研究主题</h1>
+            </div>
+          </div>
+          <form id="researchForm" class="topic-form">
+            <textarea id="topicInput" rows="4" placeholder="例如：量子计算机发展的 research review" required></textarea>
+            <section class="research-upload-panel" aria-label="研究报告上传文件">
+              <label class="pdf-upload-box research-upload-box" for="researchFileInput">
+                <strong>上传 PDF / DOCX</strong>
+                <span>可选。系统会抽取文件文本作为研究上下文，也可以只输入文字描述。</span>
+              </label>
+              <input id="researchFileInput" type="file" accept="application/pdf,.pdf,application/msword,.doc,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.docx" multiple />
+              <div class="form-actions upload-actions">
+                <span id="researchFileSummary" class="empty-state">尚未选择文件。</span>
+                <button id="clearResearchFilesButton" type="button" disabled>清空文件</button>
+              </div>
+            </section>
+            <div class="form-actions">
+              <button id="runButton" type="submit">开始研究</button>
+              <span id="statusText" role="status" aria-live="polite"></span>
+            </div>
+          </form>
+        </section>
+
+        <section class="output-band">
+          <div class="result-header">
+            <div>
+              <p class="eyebrow">Final Output</p>
+              <h2>最终输出结果</h2>
+            </div>
+            <div class="result-actions">
+              <button id="copyButton" type="button" disabled>复制结果</button>
+              <button id="downloadButton" type="button" disabled>下载 TXT</button>
+            </div>
+          </div>
+          <div class="result-layout">
+            <article id="resultOutput" class="result-output">
+              <p class="empty-state">结果会显示在这里。</p>
+            </article>
+            <aside class="reference-panel">
+              <div class="reference-heading">
+                <div>
+                  <p class="eyebrow">References</p>
+                  <h3>相关文献</h3>
+                </div>
+                <button class="reference-analysis-button" type="button" data-page-target="analysis">分析当前文献</button>
+              </div>
+              <ol id="referenceList" class="reference-list">
+                <li class="empty-state">研究完成后会显示参考文献。</li>
+              </ol>
+            </aside>
+          </div>
+        </section>
+      </section>
+
+      <section id="slrPage" class="page-view" data-page="slr">
+        <section class="literature-band">
+          <div class="literature-header">
+            <div>
+              <p class="eyebrow">Systematic Literature Review</p>
+              <h1>文献综述</h1>
+            </div>
+            <span id="slrStatus" class="analysis-status" role="status" aria-live="polite">填写主题即可生成，也可附加文件、链接或说明。</span>
+          </div>
+          <form id="slrForm" class="slr-form">
+            <label>
+              <span>综述主题</span>
+              <textarea id="slrTopicInput" rows="3" placeholder="例如：diffusion models in medical imaging" required></textarea>
+            </label>
+            <section id="slrUploadPanel" class="slr-upload-panel" aria-label="文献综述补充材料">
+              <div class="literature-paths">
+                <section class="literature-form literature-path">
+                  <div class="path-heading">
+                    <span class="feature-index">上传</span>
+                    <h2>PDF / DOCX 文件</h2>
+                  </div>
+                  <label class="pdf-upload-box" for="slrPdfInput">
+                    <strong>选择 SLR PDF / DOCX</strong>
+                    <span>可分多次选择，系统会把队列中的文件纳入文献综述。</span>
+                  </label>
+                  <input id="slrPdfInput" type="file" accept="application/pdf,.pdf,application/msword,.doc,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.docx" multiple />
+                  <div class="form-actions">
+                  <span id="slrPdfSummary" class="empty-state">尚未选择文件。</span>
+                    <button id="clearSlrPdfButton" type="button" disabled>清空文件</button>
+                  </div>
+                </section>
+                <section class="literature-form literature-path">
+                  <div class="path-heading">
+                    <span class="feature-index">粘贴</span>
+                    <h2>DOI / arXiv / URL / 补充说明</h2>
+                  </div>
+                  <textarea id="slrReferenceInput" rows="6" placeholder="可粘贴 DOI、arXiv 链接、论文页面链接，也可写筛选标准、写作要求或补充背景"></textarea>
+                </section>
+              </div>
+            </section>
+            <div id="slrSearchControls" class="slr-controls">
+              <label class="checkbox-line">
+                <input id="slrUseSearchInput" type="checkbox" checked />
+                <span>同时检索公开来源补充</span>
+              </label>
+              <label>
+                <span>论文数量</span>
+                <select id="slrCountInput">
+                  <option value="10">10</option>
+                  <option value="20" selected>20</option>
+                  <option value="30">30</option>
+                  <option value="50">50</option>
+                </select>
+              </label>
+              <label>
+                <span>arXiv 分类</span>
+                <input id="slrCategoryInput" type="text" placeholder="可选，如 cs.CL / cs.CV" />
+              </label>
+              <label>
+                <span>开始日期</span>
+                <input id="slrStartDateInput" type="text" inputmode="numeric" placeholder="YYYY 或 YYYY-MM-DD" />
+              </label>
+              <label>
+                <span>结束日期</span>
+                <input id="slrEndDateInput" type="text" inputmode="numeric" placeholder="留空表示今天" />
+              </label>
+              <label>
+                <span>引用格式</span>
+                <select id="slrCitationInput">
+                  <option value="APA" selected>APA</option>
+                  <option value="IEEE">IEEE</option>
+                  <option value="BibTeX">BibTeX</option>
+                </select>
+              </label>
+            </div>
+            <div id="slrDatePresets" class="date-presets" aria-label="文献综述时间范围快捷选择">
+              <button type="button" data-slr-years="">不限时间</button>
+              <button type="button" data-slr-years="1">近 1 年</button>
+              <button type="button" data-slr-years="3">近 3 年</button>
+              <button type="button" data-slr-years="5">近 5 年</button>
+            </div>
+            <div class="combined-actions">
+              <div class="primary-action-group">
+                <button id="slrRunButton" type="submit">生成文献综述</button>
+                <label id="slrExportFormatWrap" class="inline-export-select is-hidden">
+                  <span>格式</span>
+                  <select id="slrExportFormat" disabled>
+                    <option value="md">MD</option>
+                    <option value="pdf">PDF</option>
+                  </select>
+                </label>
+                <button id="slrExportButton" class="is-hidden" type="button" disabled>导出</button>
+              </div>
+              <span class="empty-state">文件、链接和补充说明都是选填；系统会按可用材料生成主题、共识、分歧、空白和引用。</span>
+            </div>
+          </form>
+          <div class="analysis-table-wrap">
+            <section id="slrSummary" class="literature-summary is-empty" aria-live="polite"></section>
+            <div
+              class="split-resizer"
+              data-resize-target="slrSummary"
+              role="separator"
+              aria-orientation="horizontal"
+              aria-label="调整文献综述摘要区域高度"
+              tabindex="0"
+            ></div>
+            <article id="slrOutput" class="result-output slr-output">
+              <p class="empty-state">文献综述报告会显示在这里。</p>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section id="literaturePage" class="page-view" data-page="literature">
+        <section class="literature-band">
+          <div class="literature-header">
+            <div>
+              <p class="eyebrow">Literature Assistant</p>
+              <h1>文献分析</h1>
+            </div>
+            <span id="literatureStatus" class="analysis-status" role="status" aria-live="polite">等待输入</span>
+          </div>
+          <form id="literatureForm" class="literature-inputs">
+            <div class="literature-paths">
+              <section class="literature-form literature-path">
+                <div class="path-heading">
+                  <span class="feature-index">路径 1</span>
+                  <h2>提交 DOI / arXiv / 论文链接</h2>
+                </div>
+                <textarea id="doiInput" rows="6" placeholder="每行一个 DOI、arXiv 链接或论文页面链接"></textarea>
+              </section>
+              <section class="literature-form literature-path">
+                <div class="path-heading">
+                  <span class="feature-index">路径 2</span>
+                  <h2>上传 PDF / DOCX</h2>
+                </div>
+                <label class="pdf-upload-box" for="pdfInput">
+                  <strong>选择 PDF / DOCX 文件</strong>
+                  <span>支持一个或多个 PDF / DOCX，系统会抽取正文片段后进入文献分析 workflow。</span>
+                </label>
+                <input id="pdfInput" type="file" accept="application/pdf,.pdf,application/msword,.doc,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.docx" multiple />
+                <div class="form-actions">
+                  <span id="pdfFileSummary" class="empty-state">尚未选择文件。</span>
+                  <button id="clearPdfButton" type="button" disabled>清空文件</button>
+                </div>
+              </section>
+            </div>
+            <div class="combined-actions">
+              <div class="primary-action-group">
+                <button id="doiAnalyzeButton" type="submit">开始综合分析</button>
+                <label id="literatureExportFormatWrap" class="inline-export-select is-hidden">
+                  <span>格式</span>
+                  <select id="literatureExportFormat" disabled>
+                    <option value="csv">CSV</option>
+                    <option value="txt">TXT</option>
+                  </select>
+                </label>
+                <button id="literatureExportButton" class="is-hidden" type="button" disabled>导出</button>
+              </div>
+              <span class="empty-state">可同时提交链接和 PDF / DOCX，系统会合并后分析。</span>
+            </div>
+          </form>
+          <div class="analysis-table-wrap">
+            <section id="doiSummary" class="literature-summary is-empty" aria-live="polite"></section>
+            <div
+              class="split-resizer"
+              data-resize-target="doiSummary"
+              role="separator"
+              aria-orientation="horizontal"
+              aria-label="调整文献总结区域高度"
+              tabindex="0"
+            ></div>
+            <table class="analysis-table doi-table">
+              <thead>
+                <tr>
+                  <th>文献/来源</th>
+                  <th>核心贡献</th>
+                  <th>方法/证据</th>
+                  <th>证据强度</th>
+                  <th>主要优势</th>
+                  <th>主要局限</th>
+                  <th>文献定位</th>
+                  <th>后续建议</th>
+                </tr>
+              </thead>
+              <tbody id="doiAnalysisBody">
+                <tr><td colspan="8" class="empty-state">提交文献后会在这里生成分析表。</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <section id="analysisPage" class="page-view" data-page="analysis">
+        <section class="analysis-band">
+          <div class="analysis-header">
+            <div>
+              <p class="eyebrow">Literature Analysis</p>
+              <h1>文献分析</h1>
+            </div>
+            <span id="analysisStatus" class="analysis-status" role="status" aria-live="polite">等待研究结果</span>
+          </div>
+          <div class="analysis-confirm">
+            <p id="analysisPrompt">研究完成后，可以启动 LLM 文献分析 workflow。</p>
+            <div class="primary-action-group">
+              <button id="startAnalysisButton" type="button" disabled>开始文献分析</button>
+              <label id="analysisExportFormatWrap" class="inline-export-select is-hidden">
+                <span>格式</span>
+                <select id="analysisExportFormat" disabled>
+                  <option value="csv">CSV</option>
+                  <option value="txt">TXT</option>
+                </select>
+              </label>
+              <button id="analysisExportButton" class="is-hidden" type="button" disabled>导出</button>
+            </div>
+          </div>
+          <div class="analysis-table-wrap">
+            <section id="analysisSummary" class="literature-summary is-empty" aria-live="polite"></section>
+            <table class="analysis-table">
+              <thead>
+                <tr>
+                  <th>文献</th>
+                  <th>核心贡献</th>
+                  <th>方法/证据</th>
+                  <th>证据强度</th>
+                  <th>主要优势</th>
+                  <th>主要局限</th>
+                  <th>文献定位</th>
+                  <th>后续建议</th>
+                </tr>
+              </thead>
+              <tbody id="analysisTableBody">
+                <tr><td colspan="8" class="empty-state">研究完成后会生成文献分析表。</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <section id="aboutPage" class="page-view" data-page="about">
+        <section class="intro-band">
+          <div class="intro-copy">
+            <p class="eyebrow">Project Overview</p>
+            <h1>本地运行的多步研究 Agent</h1>
+            <p>项目围绕研究写作、文献综述和文献评估三类任务组织，尽量把多源检索、分析、综合和引用输出放进同一个本地工作流。</p>
+          </div>
+        </section>
+
+        <section class="module-grid" aria-label="核心模块介绍">
+          <article class="module-panel">
+            <div class="module-heading">
+              <span class="feature-index">01</span>
+              <div>
+                <p class="eyebrow">Research Workspace</p>
+                <h2>研究报告</h2>
+              </div>
+            </div>
+            <p>
+              面向从研究问题到可阅读报告的全流程写作。它会把主题拆解为背景梳理、证据检索、观点比较和批判性分析，再整合成结构清晰、可继续编辑的 Markdown 初稿。
+            </p>
+            <ul>
+              <li>适合用于选题调研、方向摸底、技术趋势梳理和争议问题分析。</li>
+              <li>自动组织研究脉络、关键证据、不同立场和可追问的问题，减少从零搭框架的时间。</li>
+              <li>默认采用快速模式，并能在研究完成后提取相关文献，衔接后续文献分析。</li>
+            </ul>
+          </article>
+
+          <article class="module-panel">
+            <div class="module-heading">
+              <span class="feature-index">02</span>
+              <div>
+                <p class="eyebrow">Systematic Review</p>
+                <h2>文献综述</h2>
+              </div>
+            </div>
+            <p>
+              面向需要成体系梳理论文集合的综述任务。它会从 arXiv、OpenAlex、PubMed 和 Crossref 聚合检索结果，去重后批量提取研究问题、方法路线、核心发现和局限。
+            </p>
+            <ul>
+              <li>适合用于综述开题、领域扫描、相关工作整理和论文池初筛。</li>
+              <li>支持论文数量、arXiv 分类、时间范围和引用格式设置，便于控制检索范围。</li>
+              <li>输出主题聚类、共识与分歧、研究空白、逐篇注释和 APA、IEEE 或 BibTeX 引用。</li>
+              <li>帮助快速判断一个领域已经做了什么、还缺什么、哪些论文值得优先精读。</li>
+            </ul>
+          </article>
+
+          <article class="module-panel">
+            <div class="module-heading">
+              <span class="feature-index">03</span>
+              <div>
+                <p class="eyebrow">Literature Assistant</p>
+                <h2>文献分析</h2>
+              </div>
+            </div>
+            <p>
+              面向已经收集到手的论文和资料。可以提交 DOI、arXiv 链接、论文页面或多个 PDF，系统会补全元数据、抽取正文证据，并生成便于比较的文献评估表。
+            </p>
+            <ul>
+              <li>适合用于阅读清单整理、重点论文速读、文献筛选和多篇论文横向比较。</li>
+              <li>支持多 PDF 队列上传，并可与 DOI、arXiv 链接或论文网页混合分析。</li>
+              <li>从贡献、方法、证据强度、优势、局限和后续建议等维度形成评估结果。</li>
+              <li>帮助把零散材料转化为可复用的笔记、对比表和后续写作依据。</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="about-support">
+          <section class="chat-panel">
+            <div class="chat-header">
+              <div>
+                <p class="eyebrow">Ask LLM</p>
+                <h2>项目问答</h2>
+              </div>
+              <span id="chatStatus" class="chat-status" role="status" aria-live="polite"></span>
+            </div>
+            <div id="chatMessages" class="chat-messages" aria-live="polite">
+              <div class="chat-message assistant"><p>你好，我可以回答关于这个项目功能、配置和工作流的问题。</p></div>
+            </div>
+            <form id="chatForm" class="chat-form">
+              <textarea id="chatInput" class="chat-input" rows="2" placeholder="例如：文献综述模式和文献分析有什么区别？" required></textarea>
+              <button id="chatSendButton" type="submit">发送</button>
+            </form>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js?v=merged-slr-inputs-1"></script>
+  </body>
+</html>

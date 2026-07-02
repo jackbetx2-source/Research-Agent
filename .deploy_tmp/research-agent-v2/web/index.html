@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Research Agent</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar" aria-label="页面导航">
+        <div>
+          <p class="eyebrow">Local Research Agent</p>
+          <strong class="app-name">研究助手</strong>
+        </div>
+        <nav class="page-tabs" aria-label="主导航">
+          <button class="tab-button is-active" type="button" data-page-target="workspace">
+            研究工作台
+          </button>
+          <button class="tab-button" type="button" data-page-target="about">
+            项目介绍
+          </button>
+        </nav>
+      </header>
+
+      <section
+        id="workspacePage"
+        class="page-view is-active"
+        data-page="workspace"
+        aria-labelledby="topic-title"
+      >
+        <section class="input-band">
+          <div class="brand-row">
+            <div>
+              <p class="eyebrow">Topic Input</p>
+              <h1 id="topic-title">输入研究主题</h1>
+            </div>
+            <label class="speed-toggle">
+              <input id="fastMode" type="checkbox" checked />
+              <span>快速模式</span>
+            </label>
+          </div>
+
+          <form id="researchForm" class="topic-form">
+            <textarea
+              id="topicInput"
+              rows="4"
+              placeholder="例如：量子计算机发展的 research review"
+              aria-label="研究主题"
+              required
+            ></textarea>
+            <div class="form-actions">
+              <button id="runButton" type="submit">开始研究</button>
+              <span id="statusText" role="status" aria-live="polite"></span>
+            </div>
+          </form>
+        </section>
+
+        <section class="output-band" aria-labelledby="result-title">
+          <div class="result-header">
+            <div>
+              <p class="eyebrow">Final Output</p>
+              <h2 id="result-title">最终输出结果</h2>
+            </div>
+            <button id="copyButton" type="button" disabled>复制结果</button>
+          </div>
+          <article id="resultOutput" class="result-output">
+            <p class="empty-state">结果会显示在这里。</p>
+          </article>
+        </section>
+      </section>
+
+      <section
+        id="aboutPage"
+        class="page-view"
+        data-page="about"
+        aria-labelledby="about-title"
+      >
+        <section class="intro-band">
+          <div class="intro-copy">
+            <p class="eyebrow">Project Overview</p>
+            <h1 id="about-title">一个本地运行的多步骤研究 Agent</h1>
+            <p>
+              这个项目可以根据用户输入的 topic，自动完成意图理解、并行研究和报告整合，
+              最后生成一份结构化 Markdown 研究报告。
+            </p>
+          </div>
+        </section>
+
+        <section class="feature-grid" aria-label="项目功能">
+          <article class="feature-card">
+            <span class="feature-index">01</span>
+            <h2>理解研究意图</h2>
+            <p>系统会先分析输入主题，提炼研究范围、核心问题和写作方向。</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-index">02</span>
+            <h2>并行研究分支</h2>
+            <p>多个 LLM 分支会从不同角度同时展开研究，减少单一路径带来的遗漏。</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-index">03</span>
+            <h2>自动整合报告</h2>
+            <p>综合节点会汇总各分支内容，输出可复制、可保存的 Markdown 最终报告。</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-index">04</span>
+            <h2>本地网页交互</h2>
+            <p>通过浏览器输入 topic、选择快速模式、查看运行状态和复制最终结果。</p>
+          </article>
+        </section>
+
+        <section class="about-support">
+          <section class="workflow-band" aria-labelledby="workflow-title">
+            <div>
+              <p class="eyebrow">Workflow</p>
+              <h2 id="workflow-title">当前工作流</h2>
+            </div>
+            <ol class="workflow-list">
+              <li>输入研究主题</li>
+              <li>LLM 分析研究意图</li>
+              <li>三个研究分支并行生成内容</li>
+              <li>综合节点生成最终报告</li>
+              <li>保存到 outputs 目录并显示在网页中</li>
+            </ol>
+          </section>
+
+          <section class="chat-panel" aria-labelledby="chat-title">
+            <div class="chat-header">
+              <div>
+                <p class="eyebrow">Ask LLM</p>
+                <h2 id="chat-title">项目问答</h2>
+              </div>
+              <span id="chatStatus" class="chat-status" role="status" aria-live="polite"></span>
+            </div>
+            <div id="chatMessages" class="chat-messages" aria-live="polite">
+              <div class="chat-message assistant">
+                <p>你好，我可以回答关于这个项目的功能、使用方式、配置和工作流的问题。</p>
+              </div>
+            </div>
+            <form id="chatForm" class="chat-form">
+              <textarea
+                id="chatInput"
+                class="chat-input"
+                rows="2"
+                placeholder="例如：快速模式和普通模式有什么区别？"
+                aria-label="向 LLM 提问"
+                required
+              ></textarea>
+              <button id="chatSendButton" type="submit">发送</button>
+            </form>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
